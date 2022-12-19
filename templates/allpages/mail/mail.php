@@ -7,6 +7,13 @@
 <!--aside End-->
 
 <!-- main start-->
+
+<?php
+
+require_once "database/database.php";
+$db = Database::Instance();
+$maildata=$db->SelectAll("contacts");
+ ?>
  
  <div class="main-panel">
         <div class="content-wrapper">
@@ -39,20 +46,30 @@
                         </tr>
                       </thead>
                       <tbody>
+                        <?php
+
+                        foreach($maildata as $data):
+
+
+
+                        ?>
                         <tr>
-                            <td>1</td>
-                            <td>2012/08/03</td>
-                            <td>Edinburgh</td>
-                            <td>New York</td>
-                            <td>$1500</td>
-                             
+                            <td><?=$data->id;?></td>
+                            <td><?=$data->name;?></td>
+                            <td><?=$data->email;?></td>
+                            <td><?=$data->subject;?></td>
+                            <td><?=$data->message;?></td>
                             <td>
-                              <a href="" class="link"><button class="btn btn-outline-primary"><i class="fa-solid fa-eye"></i></button></a>
+                             
                               <a href="#" class="link"><button class="btn btn-outline-primary"> <i class="fa-sharp fa-solid fa-pen-to-square"></i></button></a>
                               <a href="#" class="link"><button class="btn btn-outline-primary"><i class="fa-solid fa-trash"></i></button></a>
                                
                             </td>
                         </tr>
+                        <?php
+                        endforeach;
+
+                        ?>
                         
                  
                       </tbody>

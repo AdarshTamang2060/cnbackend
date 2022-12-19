@@ -5,7 +5,7 @@ class validation{
      //   $c=1;
 
        foreach($alldata as $data):
-      $c=0;
+     // $c=0;
       if(empty($data)){
 
         $message="Required all field";

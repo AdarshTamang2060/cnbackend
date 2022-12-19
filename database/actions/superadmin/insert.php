@@ -24,6 +24,7 @@
         $cpassword=$_POST["conformpassword"];
         $gender=$_POST["gender"];
         $usertype=$_POST["usertype"];
+        $status=$_POST["status"];
 
         //image information
         $raw_image=$_FILES["adminimage"];
@@ -35,7 +36,7 @@
 
          
         //passing  vlaue as array in validation class
-        $checkempty=$validation->checkempty([$name,$username,$email,$password,$cpassword,$gender,$usertype,$raw_image]);
+        $checkempty=$validation->checkempty([$name,$username,$email,$password,$cpassword,$gender,$usertype,$raw_image,$status]);
         $checkpassword=$validation->checkcpass($password,$cpassword);
         $checkemail=$validation->checkemail($email);
  
@@ -92,7 +93,7 @@
              $hash_password=md5($password);
              
              
-             $db->Insert("admins",["name"=>"$name", "username"=>"$username", "email"=>"$email","password"=>"$hash_password","gender"=>"$gender","image"=>"$new_img_name","user_type"=>"$usertype"]);
+             $db->Insert("admins",["name"=>"$name","status"=>"$status","username"=>"$username", "email"=>"$email","password"=>"$hash_password","gender"=>"$gender","image"=>"$new_img_name","user_type"=>"$usertype"]);
             // message if insert sucessfully.
              $message="1 Record Added..";
              $_SESSION["message"]=$message;

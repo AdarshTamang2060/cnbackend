@@ -10,13 +10,7 @@
 
 require_once "database/database.php";
 $db = Database::Instance();
-
 $admindata=$db->SelectAll("admins");
-
-
-
-
-
  ?>
 
 <!-- main start-->
@@ -64,9 +58,9 @@ $admindata=$db->SelectAll("admins");
                             <td><?=$data->username;?></td>
                             <td><?=$data->email;?></td>
                             <td><?=$data->gender;?></td>
-                            <td>$3200</td>
-                            <td>$3200</td>
-                            <td>Img</td>
+                            <td><?=$data->user_type;?></td>
+                            <td><?=$data->status;?></td>
+                            <td><img src="<?=$base_url;?>images\admin\<?=$data->image;?>" alt="null"></td>
                             <td>
                               <a href="" class="link"><button class="btn btn-outline-primary"><i class="fa-solid fa-eye"></i></button></a>
                               <a href="#" class="link"><button class="btn btn-outline-primary"> <i class="fa-sharp fa-solid fa-pen-to-square"></i></button></a>
