@@ -6,6 +6,19 @@
 <?php include "templates/layout/aside.php";?>
 <!--aside End-->
 
+ <?php
+
+require_once "database/database.php";
+$db = Database::Instance();
+
+$admindata=$db->SelectAll("admins");
+
+
+
+
+
+ ?>
+
 <!-- main start-->
  
  <div class="main-panel">
@@ -42,12 +55,15 @@
                         </tr>
                       </thead>
                       <tbody>
+                        <?php
+                           foreach($admindata as $data):
+                        ?>
                         <tr>
-                            <td>1</td>
-                            <td>2012/08/03</td>
-                            <td>Edinburgh</td>
-                            <td>New York</td>
-                            <td>$1500</td>
+                            <td><?=$data->id;?></td>
+                            <td><?=$data->name;?></td>
+                            <td><?=$data->username;?></td>
+                            <td><?=$data->email;?></td>
+                            <td><?=$data->gender;?></td>
                             <td>$3200</td>
                             <td>$3200</td>
                             <td>Img</td>
@@ -57,6 +73,9 @@
                               <a href="#" class="link"><button class="btn btn-outline-primary"><i class="fa-solid fa-trash"></i></button></a>
                             </td>
                         </tr>
+                        <?php
+                        endforeach;
+                        ?>
                         
                  
                       </tbody>

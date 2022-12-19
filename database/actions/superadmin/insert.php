@@ -38,25 +38,7 @@
         $checkempty=$validation->checkempty([$name,$username,$email,$password,$cpassword,$gender,$usertype,$raw_image]);
         $checkpassword=$validation->checkcpass($password,$cpassword);
         $checkemail=$validation->checkemail($email);
-
-        //checking valid email or not
-      //   if($checkemail){
-           
-      //       $message="Enter a Valid Email";
-      //       $_SESSION["message"]=$message;
-      //       header("location:http://localhost/cnbackend/createadmin");
-
-       // }
-        //checking both password are equal or not
-      //   if($checkpassword){
-        
-            
-      //       $message="password should be Same";
-      //       $_SESSION["message"]=$message;
-      //       header("location:http://localhost/cnbackend/createadmin");
-      //   }
-        // exucate if it return true from $message
-        //checking if any field are empty
+ 
         if($checkempty){
              
             $message="required all field"; 
@@ -109,8 +91,12 @@
              //password hassing 
              $hash_password=md5($password);
              
+             
              $db->Insert("admins",["name"=>"$name", "username"=>"$username", "email"=>"$email","password"=>"$hash_password","gender"=>"$gender","image"=>"$new_img_name","user_type"=>"$usertype"]);
-
+            // message if insert sucessfully.
+             $message="1 Record Added..";
+             $_SESSION["message"]=$message;
+             header("location:http://localhost/cnbackend/createadmin");
              }
          } 
     }
