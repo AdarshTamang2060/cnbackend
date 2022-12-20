@@ -15,7 +15,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $tmp_name = $_FILES["countryimage"]["tmp_name"];
     $imageerror = $_FILES["countryimage"]["error"];
     //image information end
-
+   $slug = $_POST['country_slug'];
 
     if ($img_size > 125000) {
 
@@ -32,8 +32,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // move_uploaded_file($tmp_name, $img_upload_path);
         }
     }
-    $insert_params = ['country_slug' => $_POST['country_slug'],'country_name' => $_POST['country_name'], 'status' => $_POST['status'], 'meta_title' => $_POST['meta_title'], 'meta_description' => $_POST['meta_description'], 'intro_text' => $_POST['introtextckediter'], 'description' => $_POST['detailckediter'], 'video' => $_POST['video'],'image'=>$new_img_name,'status'=>$_POST['status']];
+    $insert_params = ['country_slug' => $slug,'country_name' => $_POST['country_name'], 'status' => $_POST['status'], 'meta_title' => $_POST['meta_title'], 'meta_description' => $_POST['meta_description'], 'intro_text' => $_POST['introtextckediter'], 'description' => $_POST['detailckediter'], 'video' => $_POST['video'],'image'=>$new_img_name,'status'=>$_POST['status']];
     if($db->Insert($country_table,$insert_params)){
+        $params = ['page_name '=> 'countries','slug'=>$slug];
+        $db->Insert($slugs_table,$params);
         move_uploaded_file($tmp_name, $img_upload_path);
         $_SESSION['message']='Country Added Successfully';
         header("location:http://localhost/cnbackend/Addcountry");
