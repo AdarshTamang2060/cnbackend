@@ -11,6 +11,11 @@
 
 <div class="main-panel">
         <div class="content-wrapper">
+                  <?php
+                  //messaage include
+                  // include("message.php");
+                  include("infos/message.php")
+              ?>
           <div class="page-header">
              
             <nav aria-label="breadcrumb">
@@ -19,20 +24,7 @@
                 <li class="breadcrumb-item active" aria-current="page"><a href="<?=$base_url;?>showadmin" class="link">Display admin</a></li>
                 </ol>
                 <div>
-                  <?php
-          
-             if(isset($_SESSION["message"])){
-              ?>
-              <div class="alert alert-danger" role="alert">
-              <?=$_SESSION["message"];?>
-            </div>
-               
-              <?php
-              session_unset();
-
-             }
-
-                  ?>
+                  
                 </div>
             </nav>
           </div>

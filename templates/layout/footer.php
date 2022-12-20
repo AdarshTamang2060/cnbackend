@@ -13,7 +13,44 @@
           CKEDITOR.replace( 'introtextckediter' );
           CKEDITOR.replace( 'detailckediter' );
           CKEDITOR.replace( 'metadiscriptionckediter' );
- </script>                
+ </script>      
+ <script src="https://code.jquery.com/jquery-3.6.2.slim.min.js" integrity="sha256-E3P3OaTZH+HlEM7f1gdAT3lHAn4nWBZXuYe89DFg2d0=" crossorigin="anonymous"></script>  
+ <script>
+ $(document).ready(function () {
+
+  ///admin delete ajax
+  $(document).on("click", ".delete-admin", function () {
+    console.log('hello');
+    if (confirm("Do you really want to delete this record?")) {
+      var did = $(this).data("did");
+      var elem = this;
+      // alert(did);
+      $.ajax({
+        url: "./database/actions/superadmin/delete-admin.php",
+        type: "POST",
+        data: {
+          did: did,
+        },
+        success: function (data) {
+          var n = data.trim();
+          console.log(n
+          )
+          if (n==='1') {
+            // console.log(data)
+            $(elem).closest("tr").fadeOut();
+          } else {
+            $("#error-msg").html("cant delete records.").slideDown();
+            $("#success-msg").slideUp();
+          }
+        },
+      });
+    }
+  });
+
+
+ });
+ </script>
+
   <script src="assets/js/data-table.js"></script>
   <script src="assets/vendors/js/vendor.bundle.base.js"></script>
   <script src="assets/vendors/js/vendor.bundle.addons.js"></script>

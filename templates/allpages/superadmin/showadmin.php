@@ -68,13 +68,14 @@ $admindata=$db->SelectAll("admins");
                             <td>$3200</td>
                             <td>Img</td>
                             <td>
-                              <a href="" class="link"><button class="btn btn-outline-primary"><i class="fa-solid fa-eye"></i></button></a>
-                              <a href="#" class="link"><button class="btn btn-outline-primary"> <i class="fa-sharp fa-solid fa-pen-to-square"></i></button></a>
-                              <a href="#" class="link"><button class="btn btn-outline-primary"><i class="fa-solid fa-trash"></i></button></a>
+                              <a href="" class="link" ><button class="btn btn-outline-primary"><i class="fa-solid fa-eye"></i></button></a>
+                              <a href="#" class="link edit-admin" data-eid="<?=$data->id;?>"><button class="btn btn-outline-primary"> <i class="fa-sharp fa-solid fa-pen-to-square"></i></button></a>
+                              <a href="#" class="link delete-admin btn btn-outline-primary" data-did="<?=$data->id;?>"><i class="fa-solid fa-trash"></i></a>
                             </td>
                         </tr>
                         <?php
                         endforeach;
+                        // include "./database/actions/superadmin/delete-admin.php";
                         ?>
                         
                  

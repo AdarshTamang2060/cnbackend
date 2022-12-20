@@ -42,7 +42,7 @@
         if($checkempty){
              
             $message="required all field"; 
-            $_SESSION["message"]=$message;
+            $_SESSION["messages"]=$message;
             header("location:http://localhost/cnbackend/createadmin");
 
         }
@@ -50,7 +50,7 @@
         elseif($checkpassword){
           
             $message="password should be Same";
-            $_SESSION["message"]=$message;
+            $_SESSION["messages"]=$message;
             header("location:http://localhost/cnbackend/createadmin");
 
 
@@ -58,7 +58,7 @@
         elseif($checkemail){
          
             $message="Enter a Valid Email";
-            $_SESSION["message"]=$message;
+            $_SESSION["messages"]=$message;
             header("location:http://localhost/cnbackend/createadmin");
 
 
@@ -74,7 +74,7 @@
          if($img_size>125000){
               
              $message="Size of the Image Should not be greater than 1 mb";
-             $_SESSION["message"]=$message;
+             $_SESSION["messages"]=$message;
             header("location:http://localhost/cnbackend/createadmin");
          }
          else{
@@ -92,17 +92,25 @@
              $hash_password=md5($password);
              
              
-             $db->Insert("admins",["name"=>"$name", "username"=>"$username", "email"=>"$email","password"=>"$hash_password","gender"=>"$gender","image"=>"$new_img_name","user_type"=>"$usertype"]);
+             if($db->Insert("admins",["name"=>"$name", "username"=>"$username", "email"=>"$email","password"=>"$hash_password","gender"=>"$gender","image"=>"$new_img_name","user_type"=>"$usertype"])){
+
+                 $_SESSION["message"]='1 Record Added..';
+                 header("location:http://localhost/cnbackend/createadmin");
+             }else{
+                // $message="Image Can't Load";
+                 $_SESSION["messages"]="Image Can't Load";
+                header("location:http://localhost/cnbackend/createadmin");
+    
+    
+        }
             // message if insert sucessfully.
-             $message="1 Record Added..";
-             $_SESSION["message"]=$message;
-             header("location:http://localhost/cnbackend/createadmin");
+            //  $message="1 Record Added..";
              }
          } 
     }
     else{
-            $message="Image Can't Load";
-             $_SESSION["message"]=$message;
+            // $message="Image Can't Load";
+             $_SESSION["messages"]="Image Can't Load";
             header("location:http://localhost/cnbackend/createadmin");
 
 
@@ -113,7 +121,3 @@
 
 
  }
-
-
- 
-?>
