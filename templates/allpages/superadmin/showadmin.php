@@ -17,6 +17,11 @@ $admindata=$db->SelectAll("admins");
  
  <div class="main-panel">
         <div class="content-wrapper">
+        <?php
+                  //messaage include
+                  // include("message.php");
+                  include("infos/message.php")
+              ?>
           <div class="page-header">
             <h3 class="page-title">
               Show Admin

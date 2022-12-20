@@ -1,15 +1,24 @@
 <!--header start-->
-<?php include "templates/layout/header.php";?>
+<?php
+session_start();
+include "templates/layout/header.php";?>
 <!--header close-->
 
 <!--aside start-->
 <?php include "templates/layout/aside.php";?>
 <!--aside End-->
 
+
 <!-- main start-->
  
 <div class="main-panel">
         <div class="content-wrapper">
+        <?php
+        
+                  //messaage include
+                  // include("message.php");
+                  include("infos/message.php")
+              ?>
           <div class="page-header">
              
             <nav aria-label="breadcrumb">
@@ -25,13 +34,13 @@
               <div class="card">
                 <div class="card-body">
                   <h4 class="card-title">Add New Country</h4>  
-                  <form class="cmxform" name="addmember" id="signupForm" method="post" action="database/actions/country/insert.php" enctype="multipart/form-data">
+                  <form class="cmxform" name="addmember" id="signupForm" method="post" action="database/actions/country/insert-country.php" enctype="multipart/form-data">
                     <fieldset>
                         
                     <div class="row">
                         <div class="form-group col-6">
                                 <label for="firstname">Title</label>
-                                <input id="firstname" class="form-control" name="title" type="text" Required>
+                                <input id="firstname" class="form-control" name="country_name" type="text" Required>
                         </div>
                            <div class="form-group col-6 mt-3">
                                 <div id="datepicker-popup" class="input-group date datepicker">
@@ -50,7 +59,7 @@
                       <div class="row">
                         <div class="form-group col-6">
                             <label for="firstname">Slug</label>
-                            <input id="firstname" class="form-control" name="slug" type="text" Required>
+                            <input id="firstname" class="form-control" name="country_slug" type="text" Required>
                         </div>
                         <div class="form-group col-6">
                         <label for="exampleSelectGender">Status</label>
@@ -71,7 +80,7 @@
                         </div>
                         <div class="form-group col-6">
                             <label for="firstname">Vedio</label>
-                            <input id="firstname" class="form-control" name="vedio" type="text" Required>
+                            <input id="firstname" class="form-control" name="video" type="text" Required>
                         </div>
                          <div class="col-lg-4 grid-margin stretch-card mt-3">
                       <div class="card">

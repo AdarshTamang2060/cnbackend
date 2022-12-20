@@ -5,6 +5,14 @@
 <!--aside start-->
 <?php include "templates/layout/aside.php";?>
 <!--aside End-->
+<?php
+
+require_once "database/database.php";
+require_once "database/tables.php";
+$db = Database::Instance();
+$country_data=$db->SelectAll("{$country_table}");
+
+ ?>
 
 <!-- main start-->
  
@@ -39,21 +47,23 @@
                         </tr>
                       </thead>
                       <tbody>
+                        <?php foreach($country_data as $data){?>
                         <tr>
-                            <td>1</td>
-                            <td>2012/08/03</td>
+                            <td><?=$data->id?></td>
+                            <td><?=$data->country_name?></td>
                             <td>Edinburgh</td>
                             <td>New York</td>
                             <td>$1500</td>
                              
                             <td>
-                              <a href="" class="link"><button class="btn btn-outline-primary"><i class="fa-solid fa-eye"></i></button></a>
-                              <a href="#" class="link"><button class="btn btn-outline-primary"> <i class="fa-sharp fa-solid fa-pen-to-square"></i></button></a>
-                              <a href="#" class="link"><button class="btn btn-outline-primary"><i class="fa-solid fa-trash"></i></button></a>
+                              <a href="" data-eid="<?=$data->id?>" class="link"><button class="btn btn-outline-primary"><i class="fa-solid fa-eye"></i></button></a>
+                              <a href="#"  class="link"><button class="btn btn-outline-primary"> <i class="fa-sharp fa-solid fa-pen-to-square"></i></button></a>
+                              <a href="#" data-did="<?=$data->id?>" class="link btn btn-outline-primary delete-country"><i class="fa-solid fa-trash"></i></a>
                               <a href="#" class="link"><button class="btn btn-outline-primary">+add consultancy</button></a>
                               <a href="#" class="link"><button class="btn btn-outline-primary">+add contents</button></a>
                             </td>
                         </tr>
+                        <?php }?>
                         
                  
                       </tbody>
