@@ -46,11 +46,22 @@
                             <input id="lastname" class="form-control" name="username" type="text"  required>
                         </div>
                     </div>
-                      
-                      <div class="form-group">
+                    <div class="row">
+                    <div class="form-group col-6">
                         <label for="email">Email</label>
-                        <input id="email" class="form-control" name="email" type="email"  required>
+                        <input  class="form-control" name="email" type="email"  required>
                       </div>
+                      <div class="form-group col-6">
+                        <label for="exampleSelectGender">Status</label>
+                            <select class="form-control" name="status" id="exampleSelectGender"  required>
+                           
+                            <option value="1">active</option>
+                            <option value="2">Inactive</option>
+                            </select>
+                        </div> 
+                    </div>
+                      
+                     
                       <div class="row">
                         <div class="form-group col-6">
                             <label for="firstname">password</label>
@@ -65,7 +76,7 @@
                         <div class="form-group col-6">
                         <label for="exampleSelectGender">Gender</label>
                             <select class="form-control" name="gender" id="exampleSelectGender" required >
-                            <option value="">Select</option>
+                            
                             <option value="male">Male</option>
                             <option value="female">Female</option>
                             <option value="other">other</option>
@@ -74,7 +85,7 @@
                         <div class="form-group col-6">
                         <label for="exampleSelectGender">User Type</label>
                             <select class="form-control" name="usertype" id="exampleSelectGender"  required>
-                            <option value="">Select</option>
+                            
                             <option value="admin">Admin</option>
                             <option value="user">User</option>
                             </select>
