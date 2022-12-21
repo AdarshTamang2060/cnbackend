@@ -3,7 +3,17 @@
 <!--header close-->
 
 <!--aside start-->
-<?php include "templates/layout/aside.php";?>
+<?php include "templates/layout/aside.php";
+
+?>
+<?php
+
+require_once "database/database.php";
+require_once "database/tables.php";
+$db = Database::Instance();
+$news=$db->SelectAll("{$news_table}");
+
+ ?>
 <!--aside End-->
 
 <!-- main start-->
@@ -39,19 +49,21 @@
                         </tr>
                       </thead>
                       <tbody>
+                        <?php foreach($news as $data){?>
                         <tr>
-                            <td>1</td>
-                            <td>2012/08/03</td>
-                            <td>Edinburgh</td>
-                            <td>New York</td>
-                            <td>$1500</td>
+                            <td><?=$data->id?></td>
+                            <td><?=$data->title?></td>
+                            <td><?=$data->date?></td>
+                            <td><?=$data->status?></td>
+                            <td><?=$data->image?></td>
                              
                             <td>
                               <a href="" class="link"><button class="btn btn-outline-primary"><i class="fa-solid fa-eye"></i></button></a>
-                              <a href="#" class="link"><button class="btn btn-outline-primary"> <i class="fa-sharp fa-solid fa-pen-to-square"></i></button></a>
-                              <a href="#" class="link"><button class="btn btn-outline-primary"><i class="fa-solid fa-trash"></i></button></a>
+                              <a href="#" data-eid="<?=$data->id?>" class="link"><button class="btn btn-outline-primary"> <i class="fa-sharp fa-solid fa-pen-to-square"></i></button></a>
+                              <a href="#" data-did="<?=$data->id?>" class="link btn btn-outline-primary delete-news"><i class="fa-solid fa-trash"></i></a>
                             </td>
                         </tr>
+                        <?php }?>
                         
                  
                       </tbody>

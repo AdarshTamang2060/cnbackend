@@ -9,11 +9,11 @@
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     //image information
     session_start();
-    $raw_image = $_FILES["contentimage"];
-    $img_name = $_FILES["contentimage"]["name"];
-    $img_size = $_FILES["contentimage"]["size"];
-    $tmp_name = $_FILES["contentimage"]["tmp_name"];
-    $imageerror = $_FILES["contentimage"]["error"];
+    $raw_image = $_FILES["testprep_image"];
+    $img_name = $_FILES["testprep_image"]["name"];
+    $img_size = $_FILES["testprep_image"]["size"];
+    $tmp_name = $_FILES["testprep_image"]["tmp_name"];
+    $imageerror = $_FILES["testprep_image"]["error"];
     //image information end
     $slug = $_POST['slug'];
 
@@ -32,16 +32,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // move_uploaded_file($tmp_name, $img_upload_path);
         }
     }
-    $insert_params = ['title' => $_POST['title'],'slug' => $slug, 'meta_title' => $_POST['meta_title'], 'meta_description' => $_POST['meta_description'], 'intro_text' => $_POST['introtextckediter'], 'description' => $_POST['detailckediter'], 'video' => $_POST['video'],'image'=>$new_img_name,'status'=>$_POST['status']];
-    if($db->Insert($content_table,$insert_params)){
+    $insert_params = ['title' => $_POST['title'],'slug' => $slug,'date'=>$_POST['date'] ,'meta_title' => $_POST['meta_title'], 'meta_description' => $_POST['meta_description'], 'intro_text' => $_POST['introtextckediter'], 'description' => $_POST['detailckediter'], 'video' => $_POST['video'],'image'=>$new_img_name,'status'=>$_POST['status']];
+    if($db->Insert($test_prep_table,$insert_params)){
         move_uploaded_file($tmp_name, $img_upload_path);
-        $params = ['page_name '=> 'content','slug'=>$slug];
+        $params = ['page_name '=> 'test_preps','slug'=>$slug];
         $db->Insert($slugs_table,$params);
-        $_SESSION['message']='Content Added Successfully';
-        header("location:http://localhost/cnbackend/addcontent");
+        $_SESSION['message']='Test Preparation Added Successfully';
+        header("location:http://localhost/cnbackend/addtestprapration");
 
     }else{
-        $_SESSION['messages']='Content Addition failed';
-        header("location:http://localhost/cnbackend/addcontent");
+        $_SESSION['messages']='Test Preparation  Addition failed';
+        header("location:http://localhost/cnbackend/addtestprapration");
     }
 }

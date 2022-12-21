@@ -75,6 +75,208 @@
     }
   });
 
+  //content delete 
+  $(document).on("click", ".delete-content", function () {
+    console.log('hello');
+    if (confirm("Do you really want to delete this record?")) {
+      var did = $(this).data("did");
+      var elem = this;
+      // alert(did);
+      $.ajax({
+        url: "./database/actions/content/delete.php",
+        type: "POST",
+        data: {
+          did: did,
+        },
+        success: function (data) {
+          var n = data.trim();
+          console.log(n
+          )
+          if (n==='1') {
+            // console.log(data)
+            $(elem).closest("tr").fadeOut();
+          } else {
+            $("#error-msg").html("cant delete records.").slideDown();
+            $("#success-msg").slideUp();
+          }
+        },
+      });
+    }
+  });
+  //test-prep delete 
+  $(document).on("click", ".delete-test", function () {
+    console.log('hello');
+    if (confirm("Do you really want to delete this record?")) {
+      var did = $(this).data("did");
+      var elem = this;
+      // alert(did);
+      $.ajax({
+        url: "./database/actions/test-preparation/delete.php",
+        type: "POST",
+        data: {
+          did: did,
+        },
+        success: function (data) {
+          var n = data.trim();
+          console.log(n
+          )
+          if (n==='1') {
+            // console.log(data)
+            $(elem).closest("tr").fadeOut();
+          } else {
+            $("#error-msg").html("cant delete records.").slideDown();
+            $("#success-msg").slideUp();
+          }
+        },
+      });
+    }
+  });
+
+
+  //mail delete 
+  $(document).on("click", ".delete-mail", function () {
+    console.log('hello');
+    if (confirm("Do you really want to delete this record?")) {
+      var did = $(this).data("did");
+      var elem = this;
+      // alert(did);
+      $.ajax({
+        url: "./database/actions/mail/delete.php",
+        type: "POST",
+        data: {
+          did: did,
+        },
+        success: function (data) {
+          var n = data.trim();
+          console.log(n
+          )
+          if (n==='1') {
+            // console.log(data)
+            $(elem).closest("tr").fadeOut();
+          } else {
+            $("#error-msg").html("cant delete records.").slideDown();
+            $("#success-msg").slideUp();
+          }
+        },
+      });
+    }
+  });
+
+  //Page type delete 
+  $(document).on("click", ".delete-pagetype", function () {
+    console.log('hello');
+    if (confirm("Do you really want to delete this record?")) {
+      var did = $(this).data("did");
+      var elem = this;
+      // alert(did);
+      $.ajax({
+        url: "./database/actions/pagetype/delete.php",
+        type: "POST",
+        data: {
+          did: did,
+        },
+        success: function (data) {
+          var n = data.trim();
+          console.log(n
+          )
+          if (n==='1') {
+            // console.log(data)
+            $(elem).closest("tr").fadeOut();
+          } else {
+            $("#error-msg").html("cant delete records.").slideDown();
+            $("#success-msg").slideUp();
+          }
+        },
+      });
+    }
+  });
+
+  // Event  delete 
+  $(document).on("click", ".delete-events", function () {
+    console.log('hello');
+    if (confirm("Do you really want to delete this record?")) {
+      var did = $(this).data("did");
+      var elem = this;
+      // alert(did);
+      $.ajax({
+        url: "./database/actions/events/delete.php",
+        type: "POST",
+        data: {
+          did: did,
+        },
+        success: function (data) {
+          var n = data.trim();
+          console.log(n
+          )
+          if (n==='1') {
+            // console.log(data)
+            $(elem).closest("tr").fadeOut();
+          } else {
+            $("#error-msg").html("cant delete records.").slideDown();
+            $("#success-msg").slideUp();
+          }
+        },
+      });
+    }
+  });
+
+  //Page delete 
+  $(document).on("click", ".delete-page", function () {
+    console.log('hello');
+    if (confirm("Do you really want to delete this record?")) {
+      var did = $(this).data("did");
+      var elem = this;
+      // alert(did);
+      $.ajax({
+        url: "./database/actions/pages/delete.php",
+        type: "POST",
+        data: {
+          did: did,
+        },
+        success: function (data) {
+          var n = data.trim();
+          console.log(n
+          )
+          if (n==='1') {
+            // console.log(data)
+            $(elem).closest("tr").fadeOut();
+          } else {
+            $("#error-msg").html("cant delete records.").slideDown();
+            $("#success-msg").slideUp();
+          }
+        },
+      });
+    }
+  });
+  //News delete 
+  $(document).on("click", ".delete-news", function () {
+    console.log('hello');
+    if (confirm("Do you really want to delete this record?")) {
+      var did = $(this).data("did");
+      var elem = this;
+      // alert(did);
+      $.ajax({
+        url: "./database/actions/news/delete.php",
+        type: "POST",
+        data: {
+          did: did,
+        },
+        success: function (data) {
+          var n = data.trim();
+          console.log(n
+          )
+          if (n==='1') {
+            // console.log(data)
+            $(elem).closest("tr").fadeOut();
+          } else {
+            $("#error-msg").html("cant delete records.").slideDown();
+            $("#success-msg").slideUp();
+          }
+        },
+      });
+    }
+  });
+
 
  });
  </script>

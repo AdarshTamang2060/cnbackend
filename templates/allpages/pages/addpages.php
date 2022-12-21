@@ -45,14 +45,22 @@
                         <div class="form-group col-6">
                         <label for="exampleSelectGender">Pages Type</label>
                             <select class="form-control" name="gender" id="exampleSelectGender" Required>
-                            <option>Service</option>
-                            <option>Privacy Policy</option>
-                            <option>Langauage Center</option>
+                              <option>----------------------------------Select Option-----------------------------------</option>
+                              <?php 
+                              require_once "database/database.php";
+                              require_once "database/tables.php";
+                              $db = Database::Instance();
+                              $page_type=$db->SelectAll("{$page_type_table}");
+                              foreach($page_type as $data){
+                              ?>
+                            <option value="<?=$data->id?>"><?=$data->title?></option>
+                            
+                            <?php } ?>
                             </select>
                         </div> 
                         <div class="form-group col-6">
                         <label for="exampleSelectGender">Status</label>
-                            <select class="form-control" name="gender" id="exampleSelectGender" Required>
+                            <select class="form-control" name="page_type" id="exampleSelectGender" Required>
                             <option>Public</option>
                             <option>Draft</option>
                              

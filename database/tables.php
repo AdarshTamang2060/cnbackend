@@ -22,6 +22,10 @@ $setting_table = "settings";
 $slugs_table = "slugs";
 $testimonial_table = "testimonials";
 $users = "users";
+$test_prep_table = "test_preparation";
+$country_faq_table = "country_faqs";
+$event_table = "events";
+// $mail_table = '';
 
 
 

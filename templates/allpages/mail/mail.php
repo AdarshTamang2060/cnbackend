@@ -62,7 +62,7 @@ $maildata=$db->SelectAll("contacts");
                             <td>
                              
                               <a href="#" class="link"><button class="btn btn-outline-primary"> <i class="fa-sharp fa-solid fa-pen-to-square"></i></button></a>
-                              <a href="#" class="link"><button class="btn btn-outline-primary"><i class="fa-solid fa-trash"></i></button></a>
+                              <a href="#" data-did="<?=$data->id;?>" class="link btn btn-outline-primary delete-mail"><i class="fa-solid fa-trash"></i></a>
                                
                             </td>
                         </tr>

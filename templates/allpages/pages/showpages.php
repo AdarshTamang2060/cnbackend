@@ -5,6 +5,16 @@
 <!--aside start-->
 <?php include "templates/layout/aside.php";?>
 <!--aside End-->
+<?php
+
+require_once "database/database.php";
+require_once "database/tables.php";
+$db = Database::Instance();
+$pages=$db->SelectAll("{$pages_table}");
+
+
+
+ ?>
 
 <!-- main start-->
  
@@ -39,19 +49,24 @@
                         </tr>
                       </thead>
                       <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>Lorem ipsum dolor sit amet consectetur adipisicing elit.</td>
-                            <td>$1500</td>
-                            <td>$1500</td>
-                            <td>$1500</td>
+                        <?php foreach($pages as $data){
+
+                        ?>                        <tr>
+                            <td><?=$data->id?></td>
+                            <td><?=$data->title?></td>
+                            <td><?=$data->status?></td>
+                            <td><?php $name = $db->SelectByCriteria($page_type_table,'title','id',[$data->page_type_id]);
+                            echo $name[0]->title;
+                            ?></td>
+                            <td><?=$data->image?></td>
                              
                             <td>
                               <a href="" class="link"><button class="btn btn-outline-primary"><i class="fa-solid fa-eye"></i></button></a>
                               <a href="#" class="link"><button class="btn btn-outline-primary"> <i class="fa-sharp fa-solid fa-pen-to-square"></i></button></a>
-                              <a href="#" class="link"><button class="btn btn-outline-primary"><i class="fa-solid fa-trash"></i></button></a>
+                              <a href="#" data-did="<?=$data->id?>" class="link btn btn-outline-primary delete-page"><i class="fa-solid fa-trash"></i></a>
                             </td>
                         </tr>
+                        <?php } ?>
                         
                  
                       </tbody>
