@@ -2,7 +2,7 @@
 $admin_table = "admins";
 $about_table = "abouts";
 $banner_table = "banners";
-$ct_district_table = "City_District";
+$ct_district_table = "city_district";
 $consultancy_table = "consultancies";
 $consultancy_page_table = "consultancy_pages";
 $contact_table = "contacts";
@@ -25,6 +25,9 @@ $users = "users";
 $test_prep_table = "test_preparation";
 $country_faq_table = "country_faqs";
 $event_table = "events";
+$province_table = "province";
+$district_table = "district";
+$city_table = "city";
 // $mail_table = '';
 
 

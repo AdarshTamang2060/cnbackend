@@ -278,6 +278,49 @@
   });
 
 
+  //dependent search province district
+  $(document).on("change", "#province", function () {
+    console.log('hello');
+    // if (confirm("Do you really want to delete this record?")) {
+      var value = $(this).val();
+      // var elem = this;
+      console.log(value)
+      // alert(did);
+      $.ajax({
+        url: "./database/actions/loader/load_district.php",
+        type: "POST",
+        data: {
+          pid: value,
+        },
+        success: function (data) {
+            $("#district").html(data);
+            $("#city").html("");
+        },
+      });
+    // }
+  });
+  
+  //dependent search city district
+  $(document).on("change", "#district", function () {
+    console.log('hello');
+    // if (confirm("Do you really want to delete this record?")) {
+      var value = $(this).val();
+      // var elem = this;
+      console.log(value)
+      // alert(did);
+      $.ajax({
+        url: "./database/actions/loader/load_city.php",
+        type: "POST",
+        data: {
+          did: value,
+        },
+        success: function (data) {
+            $("#city").html(data)
+        },
+      });
+    // }
+  });
+
  });
  </script>
 
