@@ -39,9 +39,9 @@ foreach($countrydata as $data):
               <div class="card">
                 <div class="card-body">
                   <h4 class="card-title">Edit Country</h4>  
-                  <form class="cmxform" name="addmember" id="signupForm" method="post" action="database/actions/country/insert-country.php" enctype="multipart/form-data">
+                  <form class="cmxform" name="addmember" id="signupForm" method="post" action="<?=$base_url;?>database/actions/country/edit.php" enctype="multipart/form-data">
                     <fieldset>
-                        
+                        <input hidden type="number" name="country_id" value=<?=$id?>>
                     <div class="row">
                         <div class="form-group col-6">
                                 <label for="firstname">Title</label>
@@ -68,9 +68,24 @@ foreach($countrydata as $data):
                         </div>
                         <div class="form-group col-6">
                         <label for="exampleSelectGender">Status</label>
-                            <select class="form-control" name="status" value=<?=$data->status;?>  id="exampleSelectGender" Required>
-                            <option value="1">Public</option>
-                            <option value="0">Draft</option>
+                            <select class="form-control" name="status"   id="exampleSelectGender" Required>
+
+                            <?php if($data->status=="1"){
+                                ?>
+
+                                <option value="1" selected>Active</option>
+                                <option value="0">Inactive</option>
+
+                                <?php
+                              }
+                              else{?>
+                                <option value="0" selected>Inctive</option>
+                                <option value="1">Active</option>
+                              <?php
+                              }
+                              ?>
+
+                           
                             </select>
                         </div> 
                     </div>
@@ -81,19 +96,21 @@ foreach($countrydata as $data):
                         </div>
                         <div class="form-group col-6">
                         <label for="firstname">Meta Discription</label>
-                        <textarea name="meta_description" id="meta_description"  value=<?=$data->meta_description;?>  class="form-control" rows="6" data-gramm="false" wt-ignore-input="true" data-quillbot-element="IMpuXxEePO7giRtfkYfZ2"></textarea>
+                        <textarea name="meta_description" id="meta_description"  value=<?=$data->meta_description;?>  class="form-control" rows="6"  ><?=$data->meta_description;?> </textarea>
                         </div>
                         <div class="form-group col-6">
                             <label for="firstname">Video</label>
-                            <input  type="text" id="firstname"   class="form-control" name="video" value=<?=$data->video;?>   Required>
+                            <input  type="text" id="firstname"   class="form-control" name="video" value=<?=$data->video;?>>
                         </div>
                          <div class="col-lg-4 grid-margin stretch-card mt-3">
                       <div class="card">
                         <div class="card-body">
+                           
                           <h4 class="card-title d-flex">Image
                             <small class="ml-auto align-self-end">
                             </small>
                           </h4>
+                          <input hidden type="text" name="img_url" value=<?=$data->image?>>
                           <input type="file" name="countryimage" class="dropify" Required />
                         </div>
                       </div>
@@ -116,7 +133,7 @@ foreach($countrydata as $data):
                       
                     
                     
-                      <input class="btn btn-primary" type="submit" name="add_country" value="Submit">
+                      <input class="btn btn-primary" type="submit" name="edit_country" value="Submit">
                     </fieldset>
                   </form>
                 </div>

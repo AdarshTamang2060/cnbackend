@@ -1,10 +1,9 @@
-  <!--header start-->
-<?php    
- include "../pathforeditview/header.php";?>
+<!--header start-->
+<?php include "templates/layout/header.php";?>
 <!--header close-->
 
 <!--aside start-->
-<?php include "../pathforeditview/aside.php";?>
+<?php include "templates/layout/aside.php";?>
 <!--aside End-->
 
 <!-- main start-->
@@ -116,7 +115,9 @@
 <!-- main end -->
 
 
-<!--footer start-->
-<?php include "templates/layout/footer.php";?>
+ <!--footer start-->
+<?php include "../pathforeditview/footer.php";?>
 <!--footer end-->
+
+
 

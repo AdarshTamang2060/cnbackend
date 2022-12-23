@@ -43,12 +43,12 @@ include "templates/layout/header.php";?>
                                 <input id="firstname" class="form-control" name="country_name" type="text" Required>
                         </div>
                            <div class="form-group col-6 mt-3">
-                                <div id="datepicker-popup" class="input-group date datepicker">
-                                    <input type="text" class="form-control" name="date">
+                               
+                                    <input type="date" class="form-control" name="date">
                                     <span class="input-group-addon input-group-append border-left">
-                                    <span class="far fa-calendar input-group-text"></span>
+                                    
                                     </span>
-                                </div>
+                                
                             </div>
                         </div>
                         
@@ -80,7 +80,7 @@ include "templates/layout/header.php";?>
                         </div>
                         <div class="form-group col-6">
                             <label for="firstname">Vedio</label>
-                            <input id="firstname" class="form-control" name="video" type="text" Required>
+                            <input id="firstname" class="form-control" name="video" type="text">
                         </div>
                          <div class="col-lg-4 grid-margin stretch-card mt-3">
                       <div class="card">

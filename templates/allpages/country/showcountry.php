@@ -1,5 +1,7 @@
 <!--header start-->
-<?php include "templates/layout/header.php";?>
+<?php 
+session_start();
+include "templates/layout/header.php";?>
 <!--header close-->
 
 <!--aside start-->
@@ -18,6 +20,11 @@ $country_data=$db->SelectAll("{$country_table}");
  
  <div class="main-panel">
         <div class="content-wrapper">
+        <?php
+                  //messaage include
+                  // include("message.php");
+                  include("infos/message.php")
+              ?>
           <div class="page-header">
             <h3 class="page-title">
               Show Country

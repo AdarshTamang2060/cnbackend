@@ -6,6 +6,13 @@
 <?php include "templates/layout/aside.php";?>
 <!--aside End-->
 
+<?php
+
+require_once "database/database.php";
+$db = Database::Instance();
+$aboutdata=$db->SelectAll("abouts");
+ ?>
+
 <!-- main start-->
  
  <div class="main-panel">
@@ -38,18 +45,25 @@
                         </tr>
                       </thead>
                       <tbody>
+                      <?php
+                           foreach($aboutdata as $data):
+                        ?>
                         <tr>
-                            <td>1</td>
-                            <td>Lorem ipsum dolor sit amet consectetur adipisicing elit.</td>
-                            <td>$1500</td>
-                            <td>$1500</td>
+                            <td><?=$data->id;?></td>
+                            <td><?=$data->title;?></td>
+                            <td><?=$data->status;?></td>
+                            <td>img</td>
+          
                              
                             <td>
-                              <a href="" class="link"><button class="btn btn-outline-primary"><i class="fa-solid fa-eye"></i></button></a>
+                              <a href="<?=$base_url;?>templates/allpages/aboutus/editaboutus.php?id=1" class="link"><button class="btn btn-outline-primary"><i class="fa-solid fa-eye"></i></button></a>
                               <a href="#" class="link"><button class="btn btn-outline-primary"> <i class="fa-sharp fa-solid fa-pen-to-square"></i></button></a>
                               <a href="#" class="link"><button class="btn btn-outline-primary"><i class="fa-solid fa-trash"></i></button></a>
                             </td>
                         </tr>
+                        <?php 
+endforeach;
+                        ?>
                         
                  
                       </tbody>

@@ -40,7 +40,7 @@
                       require_once "database/database.php";
                       require_once "database/tables.php";
                       $db = Database::Instance();
-                      $db->Update('jbjg',)
+                     
                      
                       $pr_data = $db->SelectAll("{$province_table}");
                       foreach ($pr_data as $data) {

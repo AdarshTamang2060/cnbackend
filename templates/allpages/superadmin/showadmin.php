@@ -1,5 +1,7 @@
 <!--header start-->
-<?php include "templates/layout/header.php";?>
+<?php  
+session_start();
+include "templates/layout/header.php";?>
 <!--header close-->
 
 <!--aside start-->

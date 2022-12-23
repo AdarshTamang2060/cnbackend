@@ -34,32 +34,11 @@
         $imageerror=$_FILES["adminimage"]["error"];
             //image information end
 
-         
-        //passing  vlaue as array in validation class
-        $checkempty=$validation->checkempty([$name,$username,$email,$password,$cpassword,$gender,$usertype,$status]);
-        $checkpassword=$validation->checkcpass($password,$cpassword);
-        $checkemail=$validation->checkemail($email);
+          
  
         
 
-        if($checkpassword){
-          
-            $message="password should be Same";
-            $_SESSION["messages"]=$message;
-            header("location:http://localhost/cnbackend/templates/allpages/superadmin/editadmin");
-
-
-        }
-        elseif($checkemail){
-         
-            $message="Enter a Valid Email";
-            $_SESSION["messages"]=$message;
-            header("location:http://localhost/cnbackend/templates/allpages/superadmin/editadmin");
-
-
-        }
-        else{
-
+        
          
 
        
@@ -70,7 +49,7 @@
               
              $message="Size of the Image Should not be greater than 1 mb";
              $_SESSION["messages"]=$message;
-            header("location:http://localhost/cnbackend/templates/allpages/superadmin/editadmin");
+            header("location:http://localhost/cnbackend/showadmin");
          }
          else{
              $img_ex=pathinfo($img_name,PATHINFO_EXTENSION);
@@ -99,7 +78,7 @@
     else{
             // $message="Image Can't Load";
              $_SESSION["messages"]="Image Can't Load";
-            header("location:http://localhost/cnbackend/templates/allpages/superadmin/editadmin");
+            header("location:http://localhost/cnbackend/showadmin");
 
 
     }
@@ -108,4 +87,4 @@
 }
 
 
- }
+ 
