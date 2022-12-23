@@ -3,7 +3,7 @@
  if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     //after submiting a adminform 
-    if(isset($_POST["add_super_admin"])){
+    if(isset($_POST["edit_super_admin"])){
       session_start();
         //include validation class
         include "../../validation/validate.php";
@@ -36,23 +36,17 @@
 
          
         //passing  vlaue as array in validation class
-        $checkempty=$validation->checkempty([$name,$username,$email,$password,$cpassword,$gender,$usertype,$raw_image,$status]);
+        $checkempty=$validation->checkempty([$name,$username,$email,$password,$cpassword,$gender,$usertype,$status]);
         $checkpassword=$validation->checkcpass($password,$cpassword);
         $checkemail=$validation->checkemail($email);
  
-        if($checkempty){
-             
-            $message="required all field"; 
-            $_SESSION["messages"]=$message;
-            header("location:http://localhost/cnbackend/createadmin");
+        
 
-        }
-
-        elseif($checkpassword){
+        if($checkpassword){
           
             $message="password should be Same";
             $_SESSION["messages"]=$message;
-            header("location:http://localhost/cnbackend/createadmin");
+            header("location:http://localhost/cnbackend/templates/allpages/superadmin/editadmin");
 
 
         }
@@ -60,7 +54,7 @@
          
             $message="Enter a Valid Email";
             $_SESSION["messages"]=$message;
-            header("location:http://localhost/cnbackend/createadmin");
+            header("location:http://localhost/cnbackend/templates/allpages/superadmin/editadmin");
 
 
         }
@@ -76,7 +70,7 @@
               
              $message="Size of the Image Should not be greater than 1 mb";
              $_SESSION["messages"]=$message;
-            header("location:http://localhost/cnbackend/createadmin");
+            header("location:http://localhost/cnbackend/templates/allpages/superadmin/editadmin");
          }
          else{
              $img_ex=pathinfo($img_name,PATHINFO_EXTENSION);
@@ -91,11 +85,13 @@
 
              //password hassing 
              $hash_password=md5($password);
-             
-             
-             $db->Insert("admins",["name"=>"$name","status"=>"$status","username"=>"$username", "email"=>"$email","password"=>"$hash_password","gender"=>"$gender","image"=>"$new_img_name","user_type"=>"$usertype"]);
-             $_SESSION["message"]="New Record Added..";
-             header("location:http://localhost/cnbackend/createadmin");
+            
+             $value=$_POST["id"];
+
+           
+             $db->Update("admins",["name"=>"$name","status"=>"$status","username"=>"$username", "email"=>"$email","password"=>"$hash_password","gender"=>"$gender","image"=>"$new_img_name","user_type"=>"$usertype"],"id",[$value]);
+             $_SESSION["message"]="New Record Edited..";
+             header("location:http://localhost/cnbackend/showadmin");
  
              }
          } 
@@ -103,7 +99,7 @@
     else{
             // $message="Image Can't Load";
              $_SESSION["messages"]="Image Can't Load";
-            header("location:http://localhost/cnbackend/createadmin");
+            header("location:http://localhost/cnbackend/templates/allpages/superadmin/editadmin");
 
 
     }

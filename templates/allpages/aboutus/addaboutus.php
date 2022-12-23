@@ -31,19 +31,19 @@
                     <div class="row">
                     <div class="form-group col-4">
                         <label for="exampleSelectGender">Status</label>
-                            <select class="form-control" name="gender" id="exampleSelectGender" Required>
+                            <select class="form-control" name="status" id="exampleSelectGender" Required>
                             <option>Public</option>
                             <option>Draft</option>
                             </select>
                         </div> 
                         <div class="form-group col-4">
                             <label for="firstname">Slug</label>
-                            <input id="firstname" class="form-control" name="firstname" type="text" Required>
+                            <input id="firstname" class="form-control" name="slug" type="text" Required>
                         </div>
                            <div class="form-group col-4 ">
                            <label for="exampleSelectGender">Date</label>
                                 <div id="datepicker-popup" class="input-group date datepicker">
-                                    <input type="text" class="form-control">
+                                    <input type="text" class="form-control" name="date">
                                     <span class="input-group-addon input-group-append border-left">
                                     <span class="far fa-calendar input-group-text"></span>
                                     </span>
@@ -58,7 +58,7 @@
                       <div class="row">
                         <div class="form-group col-6">
                             <label for="firstname">Title</label>
-                            <input id="firstname" class="form-control" name="firstname" type="text" Required>
+                            <input id="firstname" class="form-control" name="title" type="text" Required>
                         </div>
                         <div class="col-lg-4 grid-margin stretch-card mt-3">
                       <div class="card">
@@ -67,7 +67,7 @@
                             <small class="ml-auto align-self-end">
                             </small>
                           </h4>
-                          <input type="file" name="memberimage" class="dropify" Required />
+                          <input type="file" name="aboutusimage" class="dropify" Required />
                         </div>
                       </div>
                   </div>
@@ -76,20 +76,20 @@
                      
                     <div class="form-group col-12">
                             <label for="firstname">Meta Title</label>
-                            <input id="firstname" class="form-control" name="firstname" type="text" Required>
+                            <input id="firstname" class="form-control" name="meta_title" type="text" Required>
                     </div>
                         
                     
                   <div class="form-group col-12">
                         <label for="firstname">Meta Description</label>
-                        <textarea  name="metadiscription" id="summary" style="resize: none;" class="form-control" rows="6" data-gramm="false" wt-ignore-input="true" data-quillbot-element="IMpuXxEePO7giRtfkYfZ2"></textarea>
+                        <textarea  name="meta_discription" id="summary" style="resize: none;" class="form-control" rows="6" data-gramm="false" wt-ignore-input="true" data-quillbot-element="IMpuXxEePO7giRtfkYfZ2"></textarea>
                         </div>
                     </div>
                     <div class="form-group col-12">
                         <label for="firstname">Intro Text</label>
                         <textarea  name="introtextckediter" id="summary" style="resize: none;" class="form-control" rows="6" data-gramm="false" wt-ignore-input="true" data-quillbot-element="IMpuXxEePO7giRtfkYfZ2"></textarea>
                         </div>
-                    </div>
+                    
                     <div class="form-group col-12">
                         <label for="firstname">Details</label>
                         <textarea  name="detailckediter" id="summary" style="resize: none;" class="form-control" rows="6" data-gramm="false" wt-ignore-input="true" data-quillbot-element="IMpuXxEePO7giRtfkYfZ2"></textarea>

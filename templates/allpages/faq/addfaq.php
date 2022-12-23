@@ -33,7 +33,7 @@ include "templates/layout/header.php"; ?>
         <div class="card">
           <div class="card-body">
             <h4 class="card-title">Add Faq</h4>
-            <form class="cmxform" name="addmember" id="signupForm" method="post" action="action.php" enctype="multipart/form-data" onsubmit="return validateForm()">
+            <form class="cmxform" name="addmember" id="signupForm" method="post" action="database/actions/faqs/insert.php" enctype="multipart/form-data" onsubmit="return validateForm()">
               <fieldset>
 
                 <div class="form-group col-5">
@@ -56,7 +56,7 @@ foreach($country_data as $data){
                 <div>
                   <div class="form-group col-12">
                     <label for="firstname">Question</label>
-                    <input id="firstname" class="form-control" name="firstname" type="text" Required>
+                    <input id="firstname" class="form-control" name="question" type="text" Required>
                   </div>
                 </div>
 

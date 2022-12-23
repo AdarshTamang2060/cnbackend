@@ -57,7 +57,7 @@ $country_data=$db->SelectAll("{$country_table}");
                              
                             <td>
                               <a href="" data-eid="<?=$data->id?>" class="link"><button class="btn btn-outline-primary"><i class="fa-solid fa-eye"></i></button></a>
-                              <a href="#"  class="link"><button class="btn btn-outline-primary"> <i class="fa-sharp fa-solid fa-pen-to-square"></i></button></a>
+                              <a href="<?=$base_url;?>templates/allpages/country/editcountry.php?id=<?=$data->id?>"  class="link"><button class="btn btn-outline-primary"> <i class="fa-sharp fa-solid fa-pen-to-square"></i></button></a>
                               <a href="#" data-did="<?=$data->id?>" class="link btn btn-outline-primary delete-country"><i class="fa-solid fa-trash"></i></a>
                               <a href="#" class="link"><button class="btn btn-outline-primary">+add consultancy</button></a>
                               <a href="#" class="link"><button class="btn btn-outline-primary">+add contents</button></a>

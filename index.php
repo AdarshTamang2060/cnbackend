@@ -73,7 +73,7 @@ $url = explode('/', $_SERVER['REQUEST_URI']);
         include('templates/allpages/faq/addfaq.php');
     }
     elseif($url[2]== 'showfaq'){
-        $ $title="Show Faq";
+        $title="Show Faq";
         include('templates/allpages/faq/showfaq.php');
     }
     elseif($url[2]== 'addtestimonial'){

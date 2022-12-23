@@ -24,7 +24,7 @@
 
     }
 
-    $insert_params = ['question'=>$_POST['question'],'answer'=>$_POST['answer'],'faq_of'=>$_POST['for']];
+    $insert_params = ['question'=>$_POST['question'],'answer'=>$_POST['detailckediter'],'faq_of'=>$_POST['for']];
     if($db->Insert($country_faq_table,$insert_params)){
         $_SESSION['message']='Faq Added Successfully';
         header("location:http://localhost/cnbackend/addfaq");

@@ -21,14 +21,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         $message = "Size of the Image Should not be greater than 1 mb";
         $_SESSION["messages"] = $message;
-        header("location:http://localhost/cnbackend/createadmin");
+        header("location:http://localhost/cnbackend/addtestprepration");
     } else {
         $img_ex = pathinfo($img_name, PATHINFO_EXTENSION);
         $img_ex_lc = strtolower($img_ex);
         $allowed_exs = array("jpg", "png", "jpeg");
         if (in_array($img_ex_lc, $allowed_exs)) {
             $new_img_name = uniqid("IMG-", TRUE) . '.' . $img_ex_lc;
-            $img_upload_path = '../../../images/content/' . $new_img_name;
+            $img_upload_path = '../../../images/test_preparation/' . $new_img_name;
             // move_uploaded_file($tmp_name, $img_upload_path);
         }
     }
@@ -38,10 +38,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $params = ['page_name '=> 'test_preps','slug'=>$slug];
         $db->Insert($slugs_table,$params);
         $_SESSION['message']='Test Preparation Added Successfully';
-        header("location:http://localhost/cnbackend/addtestprapration");
+        header("location:http://localhost/cnbackend/addtestprepration");
 
     }else{
         $_SESSION['messages']='Test Preparation  Addition failed';
-        header("location:http://localhost/cnbackend/addtestprapration");
+        header("location:http://localhost/cnbackend/addtestprepration");
     }
 }

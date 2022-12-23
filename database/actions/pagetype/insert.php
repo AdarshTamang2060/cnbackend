@@ -26,10 +26,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $img_ex = pathinfo($img_name, PATHINFO_EXTENSION);
         $img_ex_lc = strtolower($img_ex);
         $allowed_exs = array("jpg", "png", "jpeg");
+
         if (in_array($img_ex_lc, $allowed_exs)) {
             $new_img_name = uniqid("IMG-", TRUE) . '.' . $img_ex_lc;
             $img_upload_path = '../../../images/pagetype/' . $new_img_name;
             // move_uploaded_file($tmp_name, $img_upload_path);
+        }
+        else{
+            $message = "File Extension Type Not supported";
+            $_SESSION["messages"] = $message;
+            header("location:http://localhost/cnbackend/addpagetype");
         }
     }
     $insert_params = ['title' => $_POST['title'],'slug' => $slug,  'description' => $_POST['detailckediter'],'image'=>$new_img_name,'status'=>$_POST['status']];

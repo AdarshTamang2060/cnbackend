@@ -27,7 +27,7 @@
      {
  
          try {
-             $this->_connection = new PDO("mysql:host=localhost;dbname=consultancys","root","");
+             $this->_connection = new PDO("mysql:host=localhost;dbname=consultancy","root","");
              $this->_connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
  
          } catch (PDOException $exception) {
@@ -102,7 +102,7 @@
  
      public function Update($tableName = '', $data = array(), $criteria = '', $bindValue = array())
      {
-         if (empty($tableName) || empty($tableName) || empty($criteria) ||
+         if (empty($tableName) || empty($data) || empty($criteria) ||
              empty($bindValue)) throw new PDOException("Criteria not match");
          /**
           * merge array
