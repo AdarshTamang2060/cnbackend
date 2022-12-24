@@ -76,6 +76,10 @@ $url = explode('/', $_SERVER['REQUEST_URI']);
         $title="Show Faq";
         include('templates/allpages/faq/showfaq.php');
     }
+    elseif($url[2]== 'showcfaq'){
+        $title="Show Faq";
+        include('templates/allpages/faq/showcountryfaq.php');
+    }
     elseif($url[2]== 'addtestimonial'){
         $title="Add Testimonial";
         include('templates/allpages/testimonial/addtestimonial.php');
