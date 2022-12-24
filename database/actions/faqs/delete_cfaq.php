@@ -17,7 +17,7 @@ if (isset($_POST['did'])) {
     // include ""
     // echo $imgpath.$file;
     // include ""
-    if($db->delete("faqs",$where,$value)){
+    if($db->delete($country_faq_table,$where,$value)){
     //   unlink($imgpath.$file);
      
         echo "1";

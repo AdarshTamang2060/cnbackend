@@ -13,7 +13,7 @@ include "templates/layout/header.php";?>
 require_once "database/database.php";
 require_once "database/tables.php";
 $db = Database::Instance();
-$faqs_data=$db->SelectAll("faqs");
+$faqs_data=$db->SelectAll("{$country_faq_table}");
 
  ?>
  <div class="main-panel">
@@ -45,6 +45,7 @@ $faqs_data=$db->SelectAll("faqs");
                       <thead>
                         <tr>
                             <th>SN</th>
+                            <th>Faq Of</th>
                             <th>Question</th>
                             <th>Answer</th>
                            
@@ -55,10 +56,17 @@ $faqs_data=$db->SelectAll("faqs");
                         <?php 
                         foreach($faqs_data as $data):
                         ?>
-                        
 
                         <tr>
                             <td><?=$data->id;?></td>
+                            <td>
+                                <?php
+                                $cname=$db->SelectByCriteria($country_table,'country_name','id',[$data->faq_of]);
+                                echo $cname[0]->country_name;
+                                ?>
+                               
+                        
+                        </td>
                             <td><?=$data->question;?></td>
                             <td><?=$data->answer;?></td>
                             
@@ -66,7 +74,7 @@ $faqs_data=$db->SelectAll("faqs");
                             <td>
                               <a href="" class="link"><button class="btn btn-outline-primary"><i class="fa-solid fa-eye"></i></button></a>
                               <a href="<?=$base_url;?>templates/allpages/faq/editfaq.php?id=<?=$data->id;?>" class="link"><button class="btn btn-outline-primary"> <i class="fa-sharp fa-solid fa-pen-to-square"></i></button></a>
-                              <a href="#" data-did="<?=$data->id;?>" class="link btn btn-outline-primary del-faq"><i class="fa-solid fa-trash"></i></a>
+                              <a href="#" data-did="<?=$data->id;?>" class="link btn btn-outline-primary del-cfaq"><i class="fa-solid fa-trash"></i></a>
                             </td>
                         </tr>
                         <?php

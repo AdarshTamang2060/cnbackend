@@ -134,6 +134,7 @@
               <ul class="nav flex-column sub-menu">
                 <li class="nav-item"> <a class="nav-link" href="<?=$base_url;?>addfaq">Add Faq</a></li>
                 <li class="nav-item"> <a class="nav-link" href="<?=$base_url;?>showfaq">Show Faq</a></li>
+                <li class="nav-item"> <a class="nav-link" href="<?=$base_url;?>showcfaq">Show country Faq</a></li>
                 </ul>
               </div>
           </li>
