@@ -27,7 +27,7 @@
      {
  
          try {
-             $this->_connection = new PDO("mysql:host=localhost:3307;dbname=consultancys","root","");
+             $this->_connection = new PDO("mysql:host=localhost;dbname=consultancys","root","");
              $this->_connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
  
          } catch (PDOException $exception) {

@@ -14,7 +14,7 @@
 require_once "../../../database/database.php";
 $id=$_GET["id"];
 $db = Database::Instance();
-$testimonaildata=$db->CustomQuery("SELECT * FROM consultancies WHERE id='$id'");
+$testimonaildata=$db->CustomQuery("SELECT * FROM testimonials WHERE id='$id'");
 
 foreach($testimonaildata as $data):
 
@@ -40,19 +40,32 @@ foreach($testimonaildata as $data):
               <div class="card">
                 <div class="card-body">
                   <h4 class="card-title">Add New consultacy</h4>  
-                  <form class="cmxform" name="addmember" id="signupForm" method="post" action="database/actions/testimonial/insert.php" enctype="multipart/form-data" onsubmit="return validateForm()">
+                  <form class="cmxform" name="addmember" id="signupForm" method="post" action="<?=$base_url;?>database/actions/testimonial/edit.php" enctype="multipart/form-data" onsubmit="return validateForm()">
                     <fieldset>
+                        <input type="number" name="id" value="<?=$id?>">
                         
                     <div class="row">
                     <div class="form-group col-6">
                             <label for="firstname">Name</label>
-                            <input id="firstname" class="form-control" name="name" type="text" Required>
+                            <input id="firstname" class="form-control" value="<?=$data->name;?>" name="name" type="text" Required>
                         </div>
                             <div class="form-group col-6 mt-2">
                             <label for="exampleSelectGender">Status</label>
                                 <select class="form-control" name="status" id="exampleSelectGender" Required>
-                                <option value="1">Public</option>
-                                <option value="0">Draft</option>
+                                <?php if($data->status=="1"){
+                                ?>
+
+                                <option value="1" selected>Active</option>
+                                <option value="0">Inactive</option>
+
+                                <?php
+                              }
+                              else{?>
+                                <option value="0" selected>Inctive</option>
+                                <option value="1">Active</option>
+                              <?php
+                              }
+                              ?>
                                 </select>
                             </div> 
                            
@@ -61,7 +74,7 @@ foreach($testimonaildata as $data):
                     <div class="row">
                         <div class="form-group col-6">
                             <label for="firstname">Title</label>
-                            <input id="firstname" class="form-control" name="title" type="text" Required>
+                            <input id="firstname" class="form-control" name="title"value="<?=$data->title;?>"  type="text" Required>
                         </div>
                         <div class="col-lg-4  grid-margin stretch-card mt-3">
                         <div class="card">
@@ -70,6 +83,7 @@ foreach($testimonaildata as $data):
                             <small class="ml-auto align-self-end">
                             </small>
                           </h4>
+                          <input type="text" name="img_url" value="<?=$data->image;?>"> 
                           <input type="file" name="img" class="dropify" Required />
                         </div>
                       </div>
@@ -82,7 +96,7 @@ foreach($testimonaildata as $data):
                  
                     <div class="form-group col-12">
                         <label for="firstname">Message</label>
-                        <textarea  name="introtextckediter" id="summary" style="resize: none;" class="form-control" rows="6" data-gramm="false" wt-ignore-input="true" data-quillbot-element="IMpuXxEePO7giRtfkYfZ2"></textarea>
+                        <textarea  name="introtextckediter" id="summary" style="resize: none;" class="form-control" rows="6" data-gramm="false" wt-ignore-input="true" data-quillbot-element="IMpuXxEePO7giRtfkYfZ2"><?=$data->name;?></textarea>
                        
                     </div>
                     
@@ -93,7 +107,7 @@ foreach($testimonaildata as $data):
                       
                     
                     
-                      <input class="btn btn-primary" type="submit" name="addmember" value="+addtestimonial">
+                      <input class="btn btn-primary" type="submit" name="addmember" value="+update testimonial">
                     </fieldset>
                   </form>
                 </div>
