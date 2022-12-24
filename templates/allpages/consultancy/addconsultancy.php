@@ -1,5 +1,7 @@
 <!--header start-->
-<?php include "templates/layout/header.php"; ?>
+<?php
+session_start();
+include "templates/layout/header.php"; ?>
 <!--header close-->
 
 <!--aside start-->
@@ -12,6 +14,12 @@
 
 <div class="main-panel">
   <div class="content-wrapper">
+  <?php
+        
+        //messaage include
+        // include("message.php");
+        include("infos/message.php")
+    ?>
     <div class="page-header">
 
       <nav aria-label="breadcrumb">
@@ -27,7 +35,7 @@
         <div class="card">
           <div class="card-body">
             <h4 class="card-title">Add New consultancy</h4>
-            <form class="cmxform" name="addmember" id="signupForm" method="post" action="action.php" enctype="multipart/form-data" onsubmit="return validateForm()">
+            <form class="cmxform" name="addmember" id="signupForm" method="post" action="database/actions/consultancy/insert.php" enctype="multipart/form-data" onsubmit="return validateForm()">
               <fieldset>
 
                 <div class="row">
@@ -40,7 +48,7 @@
                       require_once "database/database.php";
                       require_once "database/tables.php";
                       $db = Database::Instance();
-                     
+                      // $db->Update('jbjg',)
                      
                       $pr_data = $db->SelectAll("{$province_table}");
                       foreach ($pr_data as $data) {
@@ -66,18 +74,16 @@
 
                   <div class="form-group col-6 ">
                     <label for="firstname" class="ml-1 mt-2">Date</label>
-                    <div id="datepicker-popup" class="input-group date datepicker ">
-                      <input type="text" class="form-control">
-                      <span class="input-group-addon input-group-append border-left">
-                        <span class="far fa-calendar input-group-text"></span>
-                      </span>
-                    </div>
+                    
+                      <input type="date" name="date" class="form-control">
+                       
+                     
                   </div>
                   <div class="form-group col-6 mt-2">
                     <label for="exampleSelectGender">Status</label>
-                    <select class="form-control" name="gender" id="exampleSelectGender" Required>
-                      <option>Public</option>
-                      <option>Draft</option>
+                    <select class="form-control" name="status" id="exampleSelectGender" Required>
+                      <option value="1">Public</option>
+                      <option value="0">Draft</option>
                     </select>
                   </div>
 
@@ -86,11 +92,11 @@
                 <div class="row">
                   <div class="form-group col-4">
                     <label for="firstname">Consultancy Name</label>
-                    <input id="firstname" class="form-control" name="firstname" type="text" Required>
+                    <input id="firstname" class="form-control" name="consultancy_name" type="text" Required>
                   </div>
                   <div class="form-group col-4">
                     <label for="exampleSelectGender">Consultancy Slug</label>
-                    <input id="firstname" class="form-control" name="firstname" type="text" Required>
+                    <input id="firstname" class="form-control" name="consultancy_slug" type="text" Required>
                   </div>
                   <div class="form-group col-4">
                     <label for="exampleSelectGender">Nick Name</label>
@@ -100,31 +106,35 @@
                 <div class="row">
                   <div class="form-group col-6">
                     <label for="firstname">Consultancy Email</label>
-                    <input id="firstname" class="form-control" name="firstname" type="text" Required>
+                    <input id="firstname" class="form-control" name="consultancy_email" type="text" Required>
                   </div>
                   <div class="form-group col-6">
                     <label for="exampleSelectGender">Consultancy Address</label>
-                    <input id="firstname" class="form-control" name="firstname" type="text" Required>
+                    <input id="firstname" class="form-control" name="consultancy_address" type="text" Required>
                   </div>
                 </div>
                 <div class="row">
                   <div class="form-group col-6">
                     <label for="firstname">Consultancy Phone</label>
-                    <input id="firstname" class="form-control" name="firstname" type="text" Required>
+                    <input id="firstname" class="form-control" name="consultancy_phone" type="text" Required>
                   </div>
                   <div class="form-group col-6">
-                    <label for="exampleSelectGender">Consultancy Mobail</label>
-                    <input id="firstname" class="form-control" name="firstname" type="text" Required>
+                    <label for="firstname">Consultancy Location</label>
+                    <input id="firstname" class="form-control" name="consultancy_location" type="text" Required>
+                  </div>
+                  <div class="form-group col-6">
+                    <label for="exampleSelectGender">Consultancy Mobile</label>
+                    <input id="firstname" class="form-control" name="consultancy_mobile" type="text" Required>
                   </div>
                 </div>
                 <div class="row">
                   <div class="form-group col-6">
                     <label for="firstname">Consultancy Fax</label>
-                    <input id="firstname" class="form-control" name="firstname" type="text" Required>
+                    <input id="firstname" class="form-control" name="consultancy_fax" type="text" Required>
                   </div>
                   <div class="form-group col-6">
                     <label for="exampleSelectGender">Consultancy postbox</label>
-                    <input id="firstname" class="form-control" name="firstname" type="text" Required>
+                    <input id="firstname" class="form-control" name="consultancy_postbox" type="text" Required>
                   </div>
                 </div>
 
@@ -132,7 +142,7 @@
                 <div class="row">
                   <div class="form-group col-6">
                     <label for="firstname">consultany Website</label>
-                    <input id="firstname" class="form-control" name="firstname" type="text" Required>
+                    <input id="firstname" class="form-control" name="consultancy_website" type="text" Required>
                   </div>
                   <div class="col-lg-4 grid-margin stretch-card mt-3">
                     <div class="card">
@@ -141,19 +151,19 @@
                           <small class="ml-auto align-self-end">
                           </small>
                         </h4>
-                        <input type="file" name="memberimage" class="dropify" Required />
+                        <input type="file" name="consultancyimage" class="dropify" Required />
                       </div>
                     </div>
                   </div>
                 </div>
                 <div class="form-group col-12">
                   <label for="firstname">Meta Title</label>
-                  <textarea name="intro_text" id="summary" style="resize: none;" class="form-control" rows="5" data-gramm="false" wt-ignore-input="true" data-quillbot-element="IMpuXxEePO7giRtfkYfZ2"></textarea>
+                  <textarea name="consultancy_meta_title" id="summary" style="resize: none;" class="form-control" rows="5" data-gramm="false" wt-ignore-input="true" data-quillbot-element="IMpuXxEePO7giRtfkYfZ2"></textarea>
                 </div>
 
                 <div class="form-group col-12">
                   <label for="firstname">Meta Description</label>
-                  <textarea name="intro_text" id="summary" style="resize: none;" class="form-control" rows="6" data-gramm="false" wt-ignore-input="true" data-quillbot-element="IMpuXxEePO7giRtfkYfZ2"></textarea>
+                  <textarea name="consultancy_meta_description" id="summary" style="resize: none;" class="form-control" rows="6" data-gramm="false" wt-ignore-input="true" data-quillbot-element="IMpuXxEePO7giRtfkYfZ2"></textarea>
                 </div>
                 <div class="form-group col-12">
                   <label for="firstname">Intro Text</label>

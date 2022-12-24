@@ -60,6 +60,9 @@
              $new_img_name=uniqid("IMG-",TRUE).'.'.$img_ex_lc;
              $img_upload_path='../../../images/admin/'.$new_img_name;
              move_uploaded_file($tmp_name,$img_upload_path);
+             $imgpath = "../../../images/admin/";
+              $img_url=$_POST["img_url"];
+              unlink($imgpath.$img_url);
 
 
              //password hassing 

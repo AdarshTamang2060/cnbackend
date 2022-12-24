@@ -1,26 +1,24 @@
  <!--header start-->
- <?php    
- include "../pathforeditview/header.php";?>
+ <?php include "../pathforeditview/header.php";?>
 <!--header close-->
 
 <!--aside start-->
 <?php include "../pathforeditview/aside.php";?>
 <!--aside End-->
+<!-- main start-->
 <?php
  
 
-require_once "../../../database/database.php";
-$id=$_GET["id"];
-$db = Database::Instance();
-$countrydata=$db->CustomQuery("SELECT * FROM countries WHERE id='$id'");
-
-foreach($countrydata as $data):
-
+ require_once "../../../database/database.php";
+ $id=$_GET["id"];
+ $db = Database::Instance();
+ $contentdata=$db->CustomQuery("SELECT * FROM contents WHERE id='$id'");
  
-
- ?>
-<!-- main start-->
+ foreach($contentdata as $data):
  
+  
+ 
+  ?>
 <div class="main-panel">
         <div class="content-wrapper">
         
@@ -28,8 +26,8 @@ foreach($countrydata as $data):
              
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="<?=$base_url;?>addcountry" class="link">AddCountry</a></li>
-                <li class="breadcrumb-item active" aria-current="page"><a href="<?=$base_url;?>showcountry" class="link">Display Country</a></li>
+                <li class="breadcrumb-item"><a href="#" class="link">Dashboard</a></li>
+                <li class="breadcrumb-item active" aria-current="page"><a href="<?=$base_url;?>showcontent" class="link">Display Content</a></li>
                 </ol>
             </nav>
           </div>
@@ -38,22 +36,20 @@ foreach($countrydata as $data):
             <div class="col-lg-12">
               <div class="card">
                 <div class="card-body">
-                  <h4 class="card-title">Edit Country</h4>  
-                  <form class="cmxform" name="addmember" id="signupForm" method="post" action="<?=$base_url;?>database/actions/country/edit.php" enctype="multipart/form-data">
+                  <h4 class="card-title">Edit New User</h4>  
+                  <form class="cmxform" name="addmember" id="signupForm" method="post" action="database/actions/content/insert.php" enctype="multipart/form-data" onsubmit="return validateForm()">
                     <fieldset>
-                        <input hidden type="number" name="country_id" value=<?=$id?>>
+                        
                     <div class="row">
                         <div class="form-group col-6">
                                 <label for="firstname">Title</label>
-                                <input id="firstname" class="form-control" name="country_name" type="text" value=<?=$data->country_name;?> Required>
+                                <input id="firstname" class="form-control" name="title" value="<?=$data->title;?>" type="text" Required>
                         </div>
                            <div class="form-group col-6 mt-3">
-                                 
-                                    <input type="date" class="form-control" name="date" value=<?=$data->date;?>>
-                                    <span class="input-group-addon input-group-append border-left">
+                                
+                                    <input type="date" class="form-control" value="<?=$data->date;?>" name="date">
                                     
-                                    </span>
-                               
+                                </div>
                             </div>
                         </div>
                         
@@ -64,12 +60,11 @@ foreach($countrydata as $data):
                       <div class="row">
                         <div class="form-group col-6">
                             <label for="firstname">Slug</label>
-                            <input id="firstname" class="form-control" name="country_slug" type="text" value=<?=$data->country_slug;?>  Required>
+                            <input id="firstname" class="form-control" name="slug" value="<?=$data->slug;?>" type="text" Required>
                         </div>
                         <div class="form-group col-6">
                         <label for="exampleSelectGender">Status</label>
-                            <select class="form-control" name="status"   id="exampleSelectGender" Required>
-
+                            <select class="form-control" name="status" id="exampleSelectGender" Required>
                             <?php if($data->status=="1"){
                                 ?>
 
@@ -96,44 +91,36 @@ foreach($countrydata as $data):
                         </div>
                         <div class="form-group col-6">
                         <label for="firstname">Meta Discription</label>
-                        <textarea name="meta_description" id="meta_description"  value="<?=$data->meta_description;?>"  class="form-control" rows="6"  ><?=$data->meta_description;?> </textarea>
+                         
+                        <textarea name="meta_description" id="meta_description" class="form-control" rows="6" data-gramm="false" wt-ignore-input="true" data-quillbot-element="IMpuXxEePO7giRtfkYfZ2"><?=$data->meta_description;?></textarea>
                         </div>
                         <div class="form-group col-6">
                             <label for="firstname">Video</label>
-                            <input  type="text" id="firstname"   class="form-control" name="video" value="<?=$data->video;?>">
+                            <input id="firstname" class="form-control" name="video" value="<?=$data->video;?>" type="text" Required>
                         </div>
                          <div class="col-lg-4 grid-margin stretch-card mt-3">
                       <div class="card">
                         <div class="card-body">
-                           
                           <h4 class="card-title d-flex">Image
                             <small class="ml-auto align-self-end">
                             </small>
                           </h4>
-                          <input hidden type="text" name="img_url" value="<?=$data->image?>">
-                          <input type="file" name="countryimage"   class="dropify" Required />
+                          <input type="text" name="img_src" value="<?=$data->image;?>">
+                          <input type="file" name="contentimage" class="dropify" Required />
                         </div>
                       </div>
                   </div>
                   <div class="form-group col-12">
                         <label for="firstname">Intro Text</label>
-                        <textarea  name="introtextckediter" id="summary" style="resize: none;"  class="form-control" rows="6" data-gramm="false" wt-ignore-input="true" data-quillbot-element="IMpuXxEePO7giRtfkYfZ2" ><?=$data->intro_text;?></textarea>
+                        <textarea  name="introtextckediter" id="summary" style="resize: none;" class="form-control" rows="6" data-gramm="false" wt-ignore-input="true" data-quillbot-element="IMpuXxEePO7giRtfkYfZ2"><?=$data->intro_text;?></textarea>
                         </div>
                     </div>
                     <div class="form-group col-12">
                         <label for="firstname">Details</label>
-                        <textarea  name="detailckediter" id="summary"   style="resize: none;" class="form-control" rows="6" data-gramm="false" wt-ignore-input="true" data-quillbot-element="IMpuXxEePO7giRtfkYfZ2"><?=$data->description;?></textarea>
-                        </div>
+                        <textarea  name="detailckediter" id="summary" style="resize: none;" class="form-control" rows="6" data-gramm="false" wt-ignore-input="true" data-quillbot-element="IMpuXxEePO7giRtfkYfZ2"><?=$data->description;?></textarea>
+                     
                     </div>
-            </div>
-                        
-
-                      
-                       
-                      
-                    
-                    
-                      <input class="btn btn-primary" type="submit" name="edit_country" value="Submit">
+                      <input class="btn btn-primary" type="submit" name="addmember" value="Submit">
                     </fieldset>
                   </form>
                 </div>
@@ -141,17 +128,13 @@ foreach($countrydata as $data):
             </div>
           </div>
         </div>
- <?php
+        <?php
 endforeach;
  ?>
+       
+ <?php include "../pathforeditview/footer.php"?>
  
 <!-- main end -->
 
 
  
-
-<!--footer start-->
-<?php include "../pathforeditview/footer.php";?>
-<!--footer end-->
-
-

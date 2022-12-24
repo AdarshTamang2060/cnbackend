@@ -43,11 +43,9 @@ include "templates/layout/header.php";?>
                                 <input id="firstname" class="form-control" name="title" type="text" Required>
                         </div>
                            <div class="form-group col-6 mt-3">
-                                <div id="datepicker-popup" class="input-group date datepicker">
-                                    <input type="text" class="form-control" name="date">
-                                    <span class="input-group-addon input-group-append border-left">
-                                    <span class="far fa-calendar input-group-text"></span>
-                                    </span>
+                                
+                                    <input type="date" class="form-control" name="date">
+                                    
                                 </div>
                             </div>
                         </div>

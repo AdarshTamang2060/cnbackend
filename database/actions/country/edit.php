@@ -30,6 +30,10 @@ if ($img_size > 125000) {
         $new_img_name = uniqid("IMG-", TRUE) . '.' . $img_ex_lc;
         $img_upload_path = '../../../images/country/' . $new_img_name;
         // move_uploaded_file($tmp_name, $img_upload_path);
+        //delete old image
+        $imgpath = "../../../images/country/";
+        $img_url=$_POST["img_url"];
+        unlink($imgpath.$img_url);
     }
     else{
         $message = "File Extension Not Allowed";
@@ -39,12 +43,11 @@ if ($img_size > 125000) {
     }
 
 }
-//$img_url=$_POST["img_url"];
-$country_id=$_POST["country_id"];
-
-
  
-    $insert_params = ['country_slug' => $slug,'country_name' => $_POST['country_name'], 'status' => $_POST['status'], 'meta_title' => $_POST['meta_title'], 'meta_description' => $_POST['meta_description'], 'intro_text' => $_POST['introtextckediter'], 'description' => $_POST['detailckediter'], 'video' => $_POST['video'],'image'=>$new_img_name,'status'=>$_POST['status']];
+ 
+        
+    
+        $insert_params = ['country_slug' => $slug,'country_name' => $_POST['country_name'], 'status' => $_POST['status'], 'meta_title' => $_POST['meta_title'], 'meta_description' => $_POST['meta_description'], 'intro_text' => $_POST['introtextckediter'], 'description' => $_POST['detailckediter'], 'video' => $_POST['video'],'image'=>$new_img_name,'status'=>$_POST['status']];
 
 if($db-> Update($country_table,$insert_params,"id",[$country_id])){
     $params = ['page_name '=> 'countries','slug'=>$slug];

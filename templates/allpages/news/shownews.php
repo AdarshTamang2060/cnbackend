@@ -1,5 +1,6 @@
 <!--header start-->
-<?php include "templates/layout/header.php";?>
+<?php session_start();
+include "templates/layout/header.php";?>
 <!--header close-->
 
 <!--aside start-->
@@ -20,6 +21,11 @@ $news=$db->SelectAll("{$news_table}");
  
  <div class="main-panel">
         <div class="content-wrapper">
+        <?php
+                  //messaage include
+                  // include("message.php");
+                  include("infos/message.php")
+              ?>
           <div class="page-header">
             <h3 class="page-title">
               Show news
@@ -59,7 +65,7 @@ $news=$db->SelectAll("{$news_table}");
                              
                             <td>
                               <a href="" class="link"><button class="btn btn-outline-primary"><i class="fa-solid fa-eye"></i></button></a>
-                              <a href="#" data-eid="<?=$data->id?>" class="link"><button class="btn btn-outline-primary"> <i class="fa-sharp fa-solid fa-pen-to-square"></i></button></a>
+                              <a href="<?=$base_url;?>templates/allpages/news/editnews.php?id=<?=$data->id;?>" data-eid="<?=$data->id?>" class="link"><button class="btn btn-outline-primary"> <i class="fa-sharp fa-solid fa-pen-to-square"></i></button></a>
                               <a href="#" data-did="<?=$data->id?>" class="link btn btn-outline-primary delete-news"><i class="fa-solid fa-trash"></i></a>
                             </td>
                         </tr>

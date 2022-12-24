@@ -1,5 +1,6 @@
 <!--header start-->
-<?php include "templates/layout/header.php";?>
+<?php session_start();
+ include "templates/layout/header.php";?>
 <!--header close-->
 
 <!--aside start-->
@@ -20,6 +21,7 @@ $pages=$db->SelectAll("{$pages_table}");
  
  <div class="main-panel">
         <div class="content-wrapper">
+          <?php include "infos/message.php"; ?>
           <div class="page-header">
             <h3 class="page-title">
               Show Banner
@@ -61,8 +63,7 @@ $pages=$db->SelectAll("{$pages_table}");
                             <td><?=$data->image?></td>
                              
                             <td>
-                              <a href="" class="link"><button class="btn btn-outline-primary"><i class="fa-solid fa-eye"></i></button></a>
-                              <a href="#" class="link"><button class="btn btn-outline-primary"> <i class="fa-sharp fa-solid fa-pen-to-square"></i></button></a>
+                              <a href="<?=$base_url;?>templates/allpages/pages/editpage.php?id=<?=$data->id?>" class="link"><button class="btn btn-outline-primary"> <i class="fa-sharp fa-solid fa-pen-to-square"></i></button></a>
                               <a href="#" data-did="<?=$data->id?>" class="link btn btn-outline-primary delete-page"><i class="fa-solid fa-trash"></i></a>
                             </td>
                         </tr>

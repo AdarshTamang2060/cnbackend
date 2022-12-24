@@ -164,6 +164,7 @@ foreach($admindata as $data):
                             <small class="ml-auto align-self-end">
                             </small>
                           </h4>
+                          <input type="text" name="img_url" value="<?=$data->image;?>">
                           <input type="file" name="adminimage" class="dropify"  required />
                         </div>
                       </div>

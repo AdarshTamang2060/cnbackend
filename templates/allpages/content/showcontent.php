@@ -56,7 +56,7 @@ $contents=$db->SelectAll("{$content_table}");
                              
                             <td>
                               <a href="" class="link"><button class="btn btn-outline-primary"><i class="fa-solid fa-eye"></i></button></a>
-                              <a href="#" data-eid="<?=$data->id?>" class="link"><button class="btn btn-outline-primary"> <i class="fa-sharp fa-solid fa-pen-to-square"></i></button></a>
+                              <a href="<?=$base_url?>templates/allpages/content/editcontent.php?id=<?=$data->id?>" data-eid="<?=$data->id?>" class="link"><button class="btn btn-outline-primary"> <i class="fa-sharp fa-solid fa-pen-to-square"></i></button></a>
                               <a href="#" data-did="<?=$data->id?>" class="link btn btn-outline-primary delete-content"><i class="fa-solid fa-trash"></i></a>
                             </td>
                         </tr>
@@ -82,8 +82,6 @@ $contents=$db->SelectAll("{$content_table}");
         <!-- partial -->
       </div>
       <!-- main-panel ends -->
- 
-       
  
   
  

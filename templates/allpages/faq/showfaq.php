@@ -1,5 +1,6 @@
 <!--header start-->
-<?php include "templates/layout/header.php";?>
+<?php  session_start();
+include "templates/layout/header.php";?>
 <!--header close-->
 
 <!--aside start-->
@@ -7,9 +8,22 @@
 <!--aside End-->
 
 <!-- main start-->
- 
+<?php
+
+require_once "database/database.php";
+require_once "database/tables.php";
+$db = Database::Instance();
+$faqs_data=$db->SelectAll("{$country_faq_table}");
+
+ ?>
  <div class="main-panel">
         <div class="content-wrapper">
+        <?php
+        
+        //messaage include
+        // include("message.php");
+        include("infos/message.php")
+    ?>
           <div class="page-header">
             <h3 class="page-title">
               Show news
@@ -38,18 +52,25 @@
                         </tr>
                       </thead>
                       <tbody>
+                        <?php 
+                        foreach($faqs_data as $data):
+                        ?>
+
                         <tr>
-                            <td>1</td>
-                            <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit adipisci omnis distinctio.</td>
-                            <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione quo magni temporibus.</td>
+                            <td><?=$data->id;?></td>
+                            <td><?=$data->question;?></td>
+                            <td><?=$data->answer;?></td>
                             
                              
                             <td>
                               <a href="" class="link"><button class="btn btn-outline-primary"><i class="fa-solid fa-eye"></i></button></a>
-                              <a href="#" class="link"><button class="btn btn-outline-primary"> <i class="fa-sharp fa-solid fa-pen-to-square"></i></button></a>
+                              <a href="<?=$base_url;?>templates/allpages/faq/editfaq.php?id=<?=$data->id;?>" class="link"><button class="btn btn-outline-primary"> <i class="fa-sharp fa-solid fa-pen-to-square"></i></button></a>
                               <a href="#" class="link"><button class="btn btn-outline-primary"><i class="fa-solid fa-trash"></i></button></a>
                             </td>
                         </tr>
+                        <?php
+                        endforeach;
+                        ?>
                         
                  
                       </tbody>
