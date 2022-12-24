@@ -56,7 +56,7 @@ foreach( $faqdata as $faq){
          
             foreach($country_data as $data){
  ?>
-                    <option  <?=
+                    <option value="<?=$data->id;?>" <?=
                       ($data->id==$faq->faq_of)?"selected":""?>><?=$data->country_name?></option>
 
                     <?php } ?>

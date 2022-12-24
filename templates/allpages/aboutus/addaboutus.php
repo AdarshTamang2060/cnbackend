@@ -5,7 +5,7 @@ include "templates/layout/header.php";?>
 <!--header close-->
 
 <!--aside start-->
-<?php include "../pathforeditview/aside.php";?>
+<?php include "templates/layout/aside.php";?>
 <!--aside End-->
 
 <!-- main start-->
@@ -50,12 +50,9 @@ include "templates/layout/header.php";?>
                         </div>
                            <div class="form-group col-4 ">
                            <label for="exampleSelectGender">Date</label>
-                                <div id="datepicker-popup" class="input-group date datepicker">
-                                    <input type="text" class="form-control" name="date">
-                                    <span class="input-group-addon input-group-append border-left">
-                                    <span class="far fa-calendar input-group-text"></span>
-                                    </span>
-                                </div>
+                                 
+                                    <input type="date" class="form-control" name="date">
+                                    
                             </div>
                         </div>
                         

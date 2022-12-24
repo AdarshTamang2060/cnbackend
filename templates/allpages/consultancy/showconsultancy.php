@@ -64,24 +64,6 @@ $consultancy_data=$db->SelectAll("{$consultancy_table}");
                         </tr>
                       </thead>
                       <tbody>
-<<<<<<< HEAD
-                        <?php foreach($consultancy_data as $data){
-
-                      ?>
-                        <tr>
-                            <td><?=$data->id?></td>
-                            <td><?=$data->consultancy_name?></td>
-                            <td><?=$data->nickname?></td>
-                            <td><?=$data->consultancy_email?></td>
-                            <td><?=$data->consultancy_phone?></td>
-                            <td><?=$data->consultancy_address?></td>
-                            <td><?=$data->status?></td>
-                         
-                             
-                            <td>
-                              <a href="<?=$base_url;?>templates/allpages/consultancy/editconsultancy.php?id=<?=$data->id?>" class="link"><button class="btn btn-outline-primary"> <i class="fa-sharp fa-solid fa-pen-to-square"></i></button></a>
-                              <a href="#" data-did="<?=$data->id?>" class="link btn btn-outline-primary delete-cons"><i class="fa-solid fa-trash"></i></a>
-=======
                       <?php foreach($consultancy_data as $data){?>
                         <tr>
                             <td><?=$data->id;?></td>
@@ -95,20 +77,14 @@ $consultancy_data=$db->SelectAll("{$consultancy_table}");
                               <a href="" class="link"><button class="btn btn-outline-primary"><i class="fa-solid fa-eye"></i></button></a>
                               <a href="<?=$base_url;?>templates/allpages/consultancy/editconsultancy.php?id=<?=$data->id;?>" class="link"><button class="btn btn-outline-primary"> <i class="fa-sharp fa-solid fa-pen-to-square"></i></button></a>
                               <a href="#" class="link"><button class="btn btn-outline-primary"><i class="fa-solid fa-trash"></i></button></a>
->>>>>>> 813fd16e55f4e3beea5fddfb34ee9217e8f680d3
                               <a href="#" class="link"><button class="btn btn-outline-primary">+country</button></a>
                               <a href="#" class="link"><button class="btn btn-outline-primary">+testpreparation</button></a>
                               
                             </td>
                         </tr>
-<<<<<<< HEAD
-                        <?php } ?>
-                        
-=======
                         <?php
                       }
                         ?>
->>>>>>> 813fd16e55f4e3beea5fddfb34ee9217e8f680d3
                  
                       </tbody>
                     </table>

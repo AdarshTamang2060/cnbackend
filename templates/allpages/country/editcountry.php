@@ -111,7 +111,7 @@ foreach($countrydata as $data):
                             </small>
                           </h4>
                           <input hidden type="text" name="img_url" value="<?=$data->image?>">
-                          <input type="file" name="countryimage"   class="dropify" Required />
+                          <input type="file" name="countryimage"   class="dropify" />
                         </div>
                       </div>
                   </div>

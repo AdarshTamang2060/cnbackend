@@ -106,7 +106,7 @@
                             </small>
                           </h4>
                           <input type="text" name="img_src" value="<?=$data->image;?>">
-                          <input type="file" name="contentimage" class="dropify" Required />
+                          <input type="file" name="contentimage" class="dropify" />
                         </div>
                       </div>
                   </div>
