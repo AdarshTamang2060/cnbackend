@@ -102,7 +102,7 @@
  
      public function Update($tableName = '', $data = array(), $criteria = '', $bindValue = array())
      {
-         if (empty($tableName) || empty($tableName) || empty($criteria) ||
+         if (empty($tableName) || empty($data) || empty($criteria) ||
              empty($bindValue)) throw new PDOException("Criteria not match");
          /**
           * merge array

@@ -9,6 +9,8 @@
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     //image information
     session_start();
+
+   // echo $_POST["page_type"];
     $raw_image = $_FILES["pageimage"];
     $img_name = $_FILES["pageimage"]["name"];
     $img_size = $_FILES["pageimage"]["size"];
@@ -33,7 +35,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     }
     $insert_params = ['title' => $_POST['title'],'slug' => $slug, 'meta_title' => $_POST['meta_title'], 'meta_description' => $_POST['meta_description'], 'intro_text' => $_POST['introtextckediter'], 'description' => $_POST['detailckediter'], 'page_type_id' => $_POST['page_type'],'image'=>$new_img_name,'status'=>$_POST['status']];
-    if($db->Insert($content_table,$insert_params)){
+    if($db->Insert($pages_table,$insert_params)){
         move_uploaded_file($tmp_name, $img_upload_path);
         $params = ['page_name '=> 'content','slug'=>$slug];
         $db->Insert($slugs_table,$params);

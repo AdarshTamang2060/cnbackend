@@ -93,23 +93,10 @@
              $hash_password=md5($password);
              
              
-<<<<<<< HEAD
-             if($db->Insert("admins",["name"=>"$name", "username"=>"$username", "email"=>"$email","password"=>"$hash_password","gender"=>"$gender","image"=>"$new_img_name","user_type"=>"$usertype"])){
-
-                 $_SESSION["message"]='1 Record Added..';
-                 header("location:http://localhost/cnbackend/createadmin");
-             }else{
-                // $message="Image Can't Load";
-                 $_SESSION["messages"]="Image Can't Load";
-                header("location:http://localhost/cnbackend/createadmin");
-    
-    
-        }
-=======
              $db->Insert("admins",["name"=>"$name","status"=>"$status","username"=>"$username", "email"=>"$email","password"=>"$hash_password","gender"=>"$gender","image"=>"$new_img_name","user_type"=>"$usertype"]);
->>>>>>> 14ed452805e2fc310b97517c509d51a373e9317e
-            // message if insert sucessfully.
-            //  $message="1 Record Added..";
+             $_SESSION["message"]="New Record Added..";
+             header("location:http://localhost/cnbackend/createadmin");
+ 
              }
          } 
     }

@@ -32,7 +32,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // move_uploaded_file($tmp_name, $img_upload_path);
         }
     }
-    $insert_params = ['title' => $_POST['title'],'slug' => $slug,'date'=>$_POST['date'], 'meta_title' => $_POST['meta_title'], 'meta_description' => $_POST['meta_description'], 'intro_text' => $_POST['introtextckediter'], 'description' => $_POST['detailckediter'], 'video' => $_POST['video'],'image'=>$new_img_name,'status'=>$_POST['status']];
+    $insert_params = ['title' => $_POST['title'],'slug' => $_POST["slug"],'date'=>$_POST['date'], 'meta_title' => $_POST['meta_title'], 'meta_description' => $_POST['meta_description'], 'intro_text' => $_POST['introtextckediter'], 'description' => $_POST['detailckediter'], 'video' => $_POST['video'],'image'=>$new_img_name,'status'=>$_POST['status']];
     if($db->Insert($news_table,$insert_params)){
         move_uploaded_file($tmp_name, $img_upload_path);
         // $params = ['page_name '=> 'content','slug'=>$slug];

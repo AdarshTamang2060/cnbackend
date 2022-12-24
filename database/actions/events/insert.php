@@ -7,6 +7,7 @@
 
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    echo $_POST['date'];
     //image information
     session_start();
     $raw_image = $_FILES["eventimage"];

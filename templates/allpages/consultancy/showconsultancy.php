@@ -5,7 +5,14 @@
 <!--aside start-->
 <?php include "templates/layout/aside.php";?>
 <!--aside End-->
+<?php
 
+require_once "database/database.php";
+require_once "database/tables.php";
+$db = Database::Instance();
+$consultancy_data=$db->SelectAll("{$consultancy_table}");
+
+ ?>
 <!-- main start-->
  
  <div class="main-panel">
@@ -50,30 +57,27 @@ $consultancy_data=$db->SelectAll("{$consultancy_table}");
                         </tr>
                       </thead>
                       <tbody>
-                        <?php foreach($consultancy_data as $data){
-
-                      ?>
+                      <?php foreach($consultancy_data as $data){?>
                         <tr>
-                            <td><?=$data->id?></td>
-                            <td><?=$data->consultancy_name?></td>
-                            <td><?=$data->nickname?></td>
-                            <td><?=$data->consultancy_email?></td>
-                            <td><?=$data->consultancy_phone?></td>
-                            <td><?=$data->consultancy_address?></td>
-                            <td><?=$data->status?></td>
-                         
-                             
+                            <td><?=$data->id;?></td>
+                            <td><?=$data->consultancy_name;?></td>
+                            <td>no</td>
+                            <td><?=$data->consultancy_email;?></td>
+                            <td><?=$data->consultancy_phone;?></td>
+                            <td><?=$data->consultancy_address;?></td>
+                            <td><?=$data->status;?></td>
                             <td>
                               <a href="" class="link"><button class="btn btn-outline-primary"><i class="fa-solid fa-eye"></i></button></a>
-                              <a href="#" class="link"><button class="btn btn-outline-primary"> <i class="fa-sharp fa-solid fa-pen-to-square"></i></button></a>
-                              <a href="#" data-did="<?=$data->id?>" class="link btn btn-outline-primary delete-cons"><i class="fa-solid fa-trash"></i></a>
+                              <a href="<?=$base_url;?>templates/allpages/consultancy/editconsultancy.php?id=<?=$data->id;?>" class="link"><button class="btn btn-outline-primary"> <i class="fa-sharp fa-solid fa-pen-to-square"></i></button></a>
+                              <a href="#" class="link"><button class="btn btn-outline-primary"><i class="fa-solid fa-trash"></i></button></a>
                               <a href="#" class="link"><button class="btn btn-outline-primary">+country</button></a>
                               <a href="#" class="link"><button class="btn btn-outline-primary">+testpreparation</button></a>
                               
                             </td>
                         </tr>
-                        <?php } ?>
-                        
+                        <?php
+                      }
+                        ?>
                  
                       </tbody>
                     </table>

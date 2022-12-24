@@ -21,7 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         $message = "Size of the Image Should not be greater than 1 mb";
         $_SESSION["messages"] = $message;
-        header("location:http://localhost/cnbackend/createadmin");
+        header("location:http://localhost/cnbackend/addcontent");
     } else {
         $img_ex = pathinfo($img_name, PATHINFO_EXTENSION);
         $img_ex_lc = strtolower($img_ex);
