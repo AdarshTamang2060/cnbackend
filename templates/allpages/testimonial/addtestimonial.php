@@ -1,5 +1,7 @@
 <!--header start-->
-<?php include "templates/layout/header.php";?>
+<?php 
+session_start();
+include "templates/layout/header.php";?>
 <!--header close-->
 
 <!--aside start-->
@@ -10,6 +12,12 @@
  
 <div class="main-panel">
         <div class="content-wrapper">
+        <?php
+        
+        //messaage include
+        // include("message.php");
+        include("infos/message.php")
+    ?>
           <div class="page-header">
              
             <nav aria-label="breadcrumb">
@@ -25,19 +33,19 @@
               <div class="card">
                 <div class="card-body">
                   <h4 class="card-title">Add New consultacy</h4>  
-                  <form class="cmxform" name="addmember" id="signupForm" method="post" action="action.php" enctype="multipart/form-data" onsubmit="return validateForm()">
+                  <form class="cmxform" name="addmember" id="signupForm" method="post" action="database/actions/testimonial/insert.php" enctype="multipart/form-data" onsubmit="return validateForm()">
                     <fieldset>
                         
                     <div class="row">
                     <div class="form-group col-6">
                             <label for="firstname">Name</label>
-                            <input id="firstname" class="form-control" name="firstname" type="text" Required>
+                            <input id="firstname" class="form-control" name="name" type="text" Required>
                         </div>
                             <div class="form-group col-6 mt-2">
                             <label for="exampleSelectGender">Status</label>
-                                <select class="form-control" name="gender" id="exampleSelectGender" Required>
-                                <option>Public</option>
-                                <option>Draft</option>
+                                <select class="form-control" name="status" id="exampleSelectGender" Required>
+                                <option value="1">Public</option>
+                                <option value="0">Draft</option>
                                 </select>
                             </div> 
                            
@@ -46,7 +54,7 @@
                     <div class="row">
                         <div class="form-group col-6">
                             <label for="firstname">Title</label>
-                            <input id="firstname" class="form-control" name="firstname" type="text" Required>
+                            <input id="firstname" class="form-control" name="title" type="text" Required>
                         </div>
                         <div class="col-lg-4  grid-margin stretch-card mt-3">
                         <div class="card">
@@ -55,7 +63,7 @@
                             <small class="ml-auto align-self-end">
                             </small>
                           </h4>
-                          <input type="file" name="memberimage" class="dropify" Required />
+                          <input type="file" name="img" class="dropify" Required />
                         </div>
                       </div>
                     </div>

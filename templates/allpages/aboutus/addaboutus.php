@@ -1,6 +1,7 @@
-  <!--header start-->
-<?php    
- include "../pathforeditview/header.php";?>
+<!--header start-->
+<?php
+session_start();
+include "templates/layout/header.php";?>
 <!--header close-->
 
 <!--aside start-->
@@ -11,6 +12,12 @@
  
 <div class="main-panel">
         <div class="content-wrapper">
+        <?php
+        
+        //messaage include
+        // include("message.php");
+        include("infos/message.php")
+    ?>
           <div class="page-header">
              
             <nav aria-label="breadcrumb">
@@ -26,15 +33,15 @@
               <div class="card">
                 <div class="card-body">
                   <h4 class="card-title">Add New AboutUs</h4>  
-                  <form class="cmxform" name="addmember" id="signupForm" method="post" action="action.php" enctype="multipart/form-data" onsubmit="return validateForm()">
+                  <form class="cmxform" name="addmember" id="signupForm" method="post" action="database/actions/aboutus/insert.php" enctype="multipart/form-data" onsubmit="return validateForm()">
                     <fieldset>
                         
                     <div class="row">
                     <div class="form-group col-4">
                         <label for="exampleSelectGender">Status</label>
                             <select class="form-control" name="status" id="exampleSelectGender" Required>
-                            <option>Public</option>
-                            <option>Draft</option>
+                            <option value="1">Public</option>
+                            <option value="0">Draft</option>
                             </select>
                         </div> 
                         <div class="form-group col-4">
@@ -68,7 +75,7 @@
                             <small class="ml-auto align-self-end">
                             </small>
                           </h4>
-                          <input type="file" name="aboutusimage" class="dropify" Required />
+                          <input type="file" name="aboutimage" class="dropify" Required />
                         </div>
                       </div>
                   </div>
@@ -83,7 +90,7 @@
                     
                   <div class="form-group col-12">
                         <label for="firstname">Meta Description</label>
-                        <textarea  name="meta_discription" id="summary" style="resize: none;" class="form-control" rows="6" data-gramm="false" wt-ignore-input="true" data-quillbot-element="IMpuXxEePO7giRtfkYfZ2"></textarea>
+                        <textarea  name="meta_description" id="summary" style="resize: none;" class="form-control" rows="6" data-gramm="false" wt-ignore-input="true" data-quillbot-element="IMpuXxEePO7giRtfkYfZ2"></textarea>
                         </div>
                     </div>
                     <div class="form-group col-12">

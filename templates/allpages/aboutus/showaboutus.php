@@ -3,7 +3,12 @@
 <!--header close-->
 
 <!--aside start-->
-<?php include "templates/layout/aside.php";?>
+<?php include "templates/layout/aside.php";
+require_once "database/database.php";
+require_once "database/tables.php";
+$db = Database::Instance();
+$abouts=$db->SelectAll("{$about_table}");
+?>
 <!--aside End-->
 
 <?php
@@ -45,25 +50,19 @@ $aboutdata=$db->SelectAll("abouts");
                         </tr>
                       </thead>
                       <tbody>
-                      <?php
-                           foreach($aboutdata as $data):
-                        ?>
-                        <tr>
-                            <td><?=$data->id;?></td>
-                            <td><?=$data->title;?></td>
-                            <td><?=$data->status;?></td>
-                            <td>img</td>
-          
+                        <?php foreach($abouts as $data){?>                        <tr>
+                            <td><?=$data->id?></td>
+                            <td><?=$data->title?></td>
+                            <td><?=$data->status?></td>
+                            <td><?=$data->image?></td>
                              
                             <td>
                               <a href="<?=$base_url;?>templates/allpages/aboutus/editaboutus.php?id=1" class="link"><button class="btn btn-outline-primary"><i class="fa-solid fa-eye"></i></button></a>
                               <a href="#" class="link"><button class="btn btn-outline-primary"> <i class="fa-sharp fa-solid fa-pen-to-square"></i></button></a>
-                              <a href="#" class="link"><button class="btn btn-outline-primary"><i class="fa-solid fa-trash"></i></button></a>
+                              <a href="#" data-did="<?=$data->id?>" class="link btn btn-outline-primary delete_about"><i class="fa-solid fa-trash"></i></a>
                             </td>
                         </tr>
-                        <?php 
-endforeach;
-                        ?>
+                        <?php } ?>
                         
                  
                       </tbody>
