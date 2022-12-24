@@ -7,13 +7,46 @@
  
 
   <!-- plugins:js -->
-  
+ 
   <script src="https://cdn.ckeditor.com/4.20.1/standard/ckeditor.js"></script>  
   <script>
           CKEDITOR.replace( 'introtextckediter' );
           CKEDITOR.replace( 'detailckediter' );
           CKEDITOR.replace( 'metadiscriptionckediter' );
- </script>                
+ </script>   
+  <script src="https://code.jquery.com/jquery-3.6.2.slim.min.js" integrity="sha256-E3P3OaTZH+HlEM7f1gdAT3lHAn4nWBZXuYe89DFg2d0=" crossorigin="anonymous"></script>  
+ <script>
+ $(document).ready(function () {
+  $(document).on("click", ".delete-cc", function () {
+    console.log('hello');
+    if (confirm("Do you really want to delete this record?")) {
+      var did = $(this).data("did");
+      var elem = this;
+      // alert(did);
+      $.ajax({
+        url: "../../../database/actions/country/delete_cc.php",
+        type: "POST",
+        data: {
+          did: did,
+        },
+        
+        success: function (data) {
+          var n = data.trim();
+          console.log(n
+          )
+          if (n==='1') {
+            // console.log(data)
+            $(elem).closest("tr").fadeOut();
+          } else {
+            $("#error-msg").html("cant delete records.").slideDown();
+            $("#success-msg").slideUp();
+          }
+        },
+      });
+    }
+  });
+ });
+ </script>             
   <script src="../../../assets/js/data-table.js"></script>
   <script src="../../../assets/vendors/js/vendor.bundle.base.js"></script>
   <script src="../../../assets/vendors/js/vendor.bundle.addons.js"></script>
