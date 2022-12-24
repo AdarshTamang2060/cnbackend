@@ -6,19 +6,7 @@
 <!--aside start-->
 <?php include "../pathforeditview/aside.php";?>
 <!--aside End-->
-<?php
  
-
-require_once "../../../database/database.php";
-$id=$_GET["id"];
-$db = Database::Instance();
-$countrydata=$db->CustomQuery("SELECT * FROM countries WHERE id='$id'");
-
-foreach($countrydata as $data):
-
- 
-
- ?>
 <!-- main start-->
  
 <div class="main-panel">
@@ -41,15 +29,15 @@ foreach($countrydata as $data):
                   <h4 class="card-title">Edit Country</h4>  
                   <form class="cmxform" name="addmember" id="signupForm" method="post" action="<?=$base_url;?>database/actions/country/edit.php" enctype="multipart/form-data">
                     <fieldset>
-                        <input hidden type="number" name="country_id" value=<?=$id?>>
+                        <input hidden type="number" name="country_id" >
                     <div class="row">
                         <div class="form-group col-6">
                                 <label for="firstname">Title</label>
-                                <input id="firstname" class="form-control" name="country_name" type="text" value=<?=$data->country_name;?> Required>
+                                <input id="firstname" class="form-control" name="country_name" type="text" Required>
                         </div>
                            <div class="form-group col-6 mt-3">
                                  
-                                    <input type="date" class="form-control" name="date" value=<?=$data->date;?>>
+                                    <input type="date" class="form-control" name="date" >
                                     <span class="input-group-addon input-group-append border-left">
                                     
                                     </span>
@@ -64,27 +52,13 @@ foreach($countrydata as $data):
                       <div class="row">
                         <div class="form-group col-6">
                             <label for="firstname">Slug</label>
-                            <input id="firstname" class="form-control" name="country_slug" type="text" value=<?=$data->country_slug;?>  Required>
+                            <input id="firstname" class="form-control" name="country_slug" type="text"   Required>
                         </div>
                         <div class="form-group col-6">
                         <label for="exampleSelectGender">Status</label>
                             <select class="form-control" name="status"   id="exampleSelectGender" Required>
 
-                            <?php if($data->status=="1"){
-                                ?>
-
-                                <option value="1" selected>Active</option>
-                                <option value="0">Inactive</option>
-
-                                <?php
-                              }
-                              else{?>
-                                <option value="0" selected>Inctive</option>
-                                <option value="1">Active</option>
-                              <?php
-                              }
-                              ?>
-
+                            
                            
                             </select>
                         </div> 
@@ -92,15 +66,15 @@ foreach($countrydata as $data):
                     <div class="row">
                     <div class="form-group col-6">
                             <label for="firstname">Meta Title</label>
-                            <input id="firstname" class="form-control" name="meta_title" value="<?=$data->meta_title;?>" type="text" Required>
+                            <input id="firstname" class="form-control" name="meta_title"   type="text" Required>
                         </div>
                         <div class="form-group col-6">
                         <label for="firstname">Meta Discription</label>
-                        <textarea name="meta_description" id="meta_description"  value="<?=$data->meta_description;?>"  class="form-control" rows="6"  ><?=$data->meta_description;?> </textarea>
+                        <textarea name="meta_description" id="meta_description"   class="form-control" rows="6"  >  </textarea>
                         </div>
                         <div class="form-group col-6">
                             <label for="firstname">Video</label>
-                            <input  type="text" id="firstname"   class="form-control" name="video" value="<?=$data->video;?>">
+                            <input  type="text" id="firstname"   class="form-control" name="video"  >
                         </div>
                          <div class="col-lg-4 grid-margin stretch-card mt-3">
                       <div class="card">
@@ -110,19 +84,19 @@ foreach($countrydata as $data):
                             <small class="ml-auto align-self-end">
                             </small>
                           </h4>
-                          <input hidden type="text" name="img_url" value="<?=$data->image?>">
+                       
                           <input type="file" name="countryimage"   class="dropify" />
                         </div>
                       </div>
                   </div>
                   <div class="form-group col-12">
                         <label for="firstname">Intro Text</label>
-                        <textarea  name="introtextckediter" id="summary" style="resize: none;"  class="form-control" rows="6" data-gramm="false" wt-ignore-input="true" data-quillbot-element="IMpuXxEePO7giRtfkYfZ2" ><?=$data->intro_text;?></textarea>
+                        <textarea  name="introtextckediter" id="summary" style="resize: none;"  class="form-control" rows="6" data-gramm="false" wt-ignore-input="true" data-quillbot-element="IMpuXxEePO7giRtfkYfZ2" > </textarea>
                         </div>
                     </div>
                     <div class="form-group col-12">
                         <label for="firstname">Details</label>
-                        <textarea  name="detailckediter" id="summary"   style="resize: none;" class="form-control" rows="6" data-gramm="false" wt-ignore-input="true" data-quillbot-element="IMpuXxEePO7giRtfkYfZ2"><?=$data->description;?></textarea>
+                        <textarea  name="detailckediter" id="summary"   style="resize: none;" class="form-control" rows="6" data-gramm="false" wt-ignore-input="true" data-quillbot-element="IMpuXxEePO7giRtfkYfZ2"> </textarea>
                         </div>
                     </div>
             </div>
@@ -133,7 +107,7 @@ foreach($countrydata as $data):
                       
                     
                     
-                      <input class="btn btn-primary" type="submit" name="edit_country" value="Submit">
+                      <input class="btn btn-primary" type="submit" name="Add_content" >
                     </fieldset>
                   </form>
                 </div>
@@ -141,9 +115,7 @@ foreach($countrydata as $data):
             </div>
           </div>
         </div>
- <?php
-endforeach;
- ?>
+ 
  
 <!-- main end -->
 
