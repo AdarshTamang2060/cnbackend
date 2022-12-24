@@ -57,7 +57,10 @@ $country_data=$db->SelectAll("{$country_table}");
                         <?php foreach($country_data as $data){?>
                         <tr>
                             <td><?=$data->id?></td>
-                            <td><?=$data->country_name?></td>
+                            <td><?=$data->country_name?>
+                          <hr>
+                         <a href="<?=$base_url;?>templates/allpages/country/country-content-list.php" class="link"> showcontent</a>
+                          </td>
                             <td>Edinburgh</td>
                             <td>New York</td>
                             <td>$1500</td>
@@ -67,7 +70,7 @@ $country_data=$db->SelectAll("{$country_table}");
                               <a href="<?=$base_url;?>templates/allpages/country/editcountry.php?id=<?=$data->id?>"  class="link"><button class="btn btn-outline-primary"> <i class="fa-sharp fa-solid fa-pen-to-square"></i></button></a>
                               <a href="#" data-did="<?=$data->id?>" class="link btn btn-outline-primary delete-country"><i class="fa-solid fa-trash"></i></a>
                               <a href="<?=$base_url;?>templates/allpages/country/consultancylist.php" class="link"><button class="btn btn-outline-primary">+add consultancy</button></a>
-                              <a href="#" class="link"><button class="btn btn-outline-primary">+add contents</button></a>
+                              <a href="<?=$base_url;?>templates/allpages/country/add_content.php" class="link"><button class="btn btn-outline-primary">+add contents</button></a>
                             </td>
                         </tr>
                         <?php }?>

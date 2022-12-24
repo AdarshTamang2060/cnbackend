@@ -1,5 +1,5 @@
  <!--header start-->
- <?php    
+ <?php   session_start(); 
  include "../pathforeditview/header.php";?>
 <!--header close-->
 
@@ -21,6 +21,11 @@ $consultancy_list=$db->CustomQuery("SELECT * FROM consultancies");
  
 <div class="main-panel">
         <div class="content-wrapper">
+        <?php
+                  //messaage include
+                  // include("message.php");
+                  include("../../../infos/message.php")
+              ?>
         
           <div class="page-header">
              
@@ -37,19 +42,22 @@ $consultancy_list=$db->CustomQuery("SELECT * FROM consultancies");
               <div class="card">
                 <div class="card-body">
                   <h4 class="card-title">Consultancy list</h4>
+                  <form method="post" action="<?=$base_url;?>database/actions/country/addconsultancy.php" >
                   <?php
                   foreach($consultancy_list as $list){
 
                   ?>
 
                         <label class="container"><?=$list->consultancy_name;?>
-                        <input type="checkbox">
+                        <input type="checkbox" name="consultancy_list[]" value="<?=$list->id?>">
                         <span class="checkmark"></span>
                         </label>
                         <?php 
                   }
                         ?>
 
+                     <input class="btn btn-primary mt-5" type="submit" value="+add consultancy">   
+                </form>
                 
                 </div>
               </div>
