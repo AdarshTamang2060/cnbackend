@@ -97,6 +97,13 @@
   -ms-transform: rotate(45deg);
   transform: rotate(45deg);
 }
+/* .submitcheck{
+  margin-left:700px;
+  position:sticky;
+  top:0px;
+
+
+} */
     </style>
 </head>
 <body>

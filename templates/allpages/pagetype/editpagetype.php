@@ -101,7 +101,7 @@ foreach ($pagetypedata as $data):
                       
                     
                     
-                      <input class="btn btn-primary" type="submit" name="addmember" value="+Update">
+                      <input class="btn btn-primary" type="submit" name="addmember" value="+Update pagetype">
                     </fieldset>
                   </form>
                 </div>

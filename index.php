@@ -13,9 +13,14 @@ $url = explode('/', $_SERVER['REQUEST_URI']);
     
     if ($url[2] == '') {
         $title="Dashboard";
-        include('templates/allpages/dashboard/dashboard.php');
+        include('templates/allpages/loginpage/login.php');
         
     }  
+    elseif($url[2]== 'dashboard'){
+        $title="Dashboard";
+        include('templates/allpages/dashboard/dashboard.php');
+        
+    }
     elseif($url[2]== 'createadmin'){
         $title="Create Admin";
         include('templates/allpages/superadmin/createadmin.php');

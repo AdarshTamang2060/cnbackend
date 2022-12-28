@@ -118,7 +118,7 @@ foreach($aboutusdata as $data):
                     
                     <div class="form-group col-12">
                         <label for="firstname">Details</label>
-                        <textarea  name="detailckediter" id="summary" style="resize: none;" class="form-control" rows="6" data-gramm="false" wt-ignore-input="true" data-quillbot-element="IMpuXxEePO7giRtfkYfZ2"><?=$data->description;?></textarea>
+                        <textarea  name="detailckediter" id="summary" style="resize: none;" class="form-control" rows="6" data-gramm="false" wt-ignore-input="true" data-quillbot-element="IMpuXxEePO7giRtfkYfZ2"> <?=$data->description;?></textarea>
                         </div>
                     </div>
                         

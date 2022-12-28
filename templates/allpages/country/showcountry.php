@@ -12,6 +12,7 @@ include "templates/layout/header.php";?>
 require_once "database/database.php";
 require_once "database/tables.php";
 $db = Database::Instance();
+ 
 $country_data=$db->SelectAll("{$country_table}");
 
  ?>
@@ -56,21 +57,27 @@ $country_data=$db->SelectAll("{$country_table}");
                       <tbody>
                         <?php foreach($country_data as $data){?>
                         <tr>
-                            <td><?=$data->id?></td>
-                            <td><?=$data->country_name?>
+                            <td><?=$data->id;?></td>
+                            <td><?=$data->country_name;?>
                           <hr>
-                         <a href="<?=$base_url;?>templates/allpages/country/country-content-list.php" class="link"> showcontent</a>
+                          <?php 
+                        $count=$db->CustomQuery("SELECT COUNT(*) as counts FROM country_contents WHERE country_id='$data->id'");
+                        // print_r($count);
+                         
+                          ?>
+                      
+                         <a href="<?=$base_url;?>templates/allpages/country/country-content-list.php?id=<?=$data->id?>" class="link"> showcontent &nbsp;<?= $count[0]->counts?></a>
                           </td>
-                            <td>Edinburgh</td>
-                            <td>New York</td>
-                            <td>$1500</td>
+                            <td><?=$data->order_number;?></td>
+                            <td><?=$data->featured;?></td>
+                            <td><?=$data->is_home;?></td>
                              
                             <td>
-                              <a href="" data-eid="<?=$data->id?>" class="link"><button class="btn btn-outline-primary"><i class="fa-solid fa-eye"></i></button></a>
+                               
                               <a href="<?=$base_url;?>templates/allpages/country/editcountry.php?id=<?=$data->id?>"  class="link"><button class="btn btn-outline-primary"> <i class="fa-sharp fa-solid fa-pen-to-square"></i></button></a>
                               <a href="#" data-did="<?=$data->id?>" class="link btn btn-outline-primary delete-country"><i class="fa-solid fa-trash"></i></a>
                               <a href="<?=$base_url;?>templates/allpages/country/consultancylist.php" class="link"><button class="btn btn-outline-primary">+add consultancy</button></a>
-                              <a href="<?=$base_url;?>templates/allpages/country/add_content.php" class="link"><button class="btn btn-outline-primary">+add contents</button></a>
+                              <a href="<?=$base_url;?>templates/allpages/country/add_content.php?id=<?=$data->id;?>" class="link"><button class="btn btn-outline-primary">+add contents</button></a>
                             </td>
                         </tr>
                         <?php }?>
@@ -84,15 +91,7 @@ $country_data=$db->SelectAll("{$country_table}");
             </div>
           </div>
         </div>
-        <!-- content-wrapper ends -->
-        <!-- partial:../../partials/_footer.html -->
-        <footer class="footer">
-          <div class="d-sm-flex justify-content-center justify-content-sm-between">
-            <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright © 2018 <a href="https://www.urbanui.com/" target="_blank">Urbanui</a>. All rights reserved.</span>
-            <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Hand-crafted & made with <i class="far fa-heart text-danger"></i></span>
-          </div>
-        </footer>
-        <!-- partial -->
+         
       </div>
       <!-- main-panel ends -->
  

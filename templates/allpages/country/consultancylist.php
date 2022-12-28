@@ -43,20 +43,29 @@ $consultancy_list=$db->CustomQuery("SELECT * FROM consultancies");
                 <div class="card-body">
                   <h4 class="card-title">Consultancy list</h4>
                   <form method="post" action="<?=$base_url;?>database/actions/country/addconsultancy.php" >
-                  <?php
+                  <div class="row d-flex flex-row-reverse">
+<div class="col-2">
+  <input class=" submitcheck btn btn-primary mt-5 sticky-top" type="submit" value="+add consultancy">   
+
+</div>
+<div class="col-10">
+<?php
                   foreach($consultancy_list as $list){
-
-                  ?>
-
-                        <label class="container"><?=$list->consultancy_name;?>
-                        <input type="checkbox" name="consultancy_list[]" value="<?=$list->id?>">
-                        <span class="checkmark"></span>
-                        </label>
-                        <?php 
+                    
+                    ?>
+                  
+                    
+                  <label class="container"><?=$list->consultancy_name;?>
+                  <input type="checkbox" name="consultancy_list[]" value="<?=$list->id?>">
+                  <span class="checkmark"></span>
+                </label>
+                <?php 
                   }
-                        ?>
+                  ?>
+                  </div>
+                  </div>
 
-                     <input class="btn btn-primary mt-5" type="submit" value="+add consultancy">   
+                   
                 </form>
                 
                 </div>

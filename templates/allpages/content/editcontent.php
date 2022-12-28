@@ -50,7 +50,7 @@
                                     <input type="date" class="form-control" value="<?=$data->date;?>" name="date">
                                     
                                 </div>
-                            </div>
+                             
                         </div>
                         
                         <!-- <div class="form-group">
@@ -105,7 +105,7 @@
                             <small class="ml-auto align-self-end">
                             </small>
                           </h4>
-                          <input type="text" name="img_src" value="<?=$data->image;?>">
+                          <input hidden type="text" name="img_src" value="<?=$data->image;?>">
                           <input type="file" name="contentimage" class="dropify" />
                         </div>
                       </div>

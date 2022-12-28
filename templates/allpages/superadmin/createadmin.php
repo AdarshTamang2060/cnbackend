@@ -73,7 +73,7 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="form-group col-6">
+                        <div class="form-group col-4">
                         <label for="exampleSelectGender">Gender</label>
                             <select class="form-control" name="gender" id="exampleSelectGender" required >
                             
@@ -82,12 +82,28 @@
                             <option value="other">other</option>
                             </select>
                         </div> 
-                        <div class="form-group col-6">
+                        <div class="form-group col-4">
                         <label for="exampleSelectGender">User Type</label>
                             <select class="form-control" name="usertype" id="exampleSelectGender"  required>
                             
-                            <option value="admin">Admin</option>
+                            <option value="admin">SuperAdmin</option>
                             <option value="user">User</option>
+                            </select>
+                        </div> 
+                        <div class="form-group col-4">
+                        <label for="exampleSelectGender">ConsultancyList</label>
+                            <select class="form-control" name="consulatncyid" id="exampleSelectGender">
+                            <option value="0">Select</option>
+                                 <?php
+                                require_once "database/database.php";
+                                $db = Database::Instance();
+                                $consultancy_list=$db->CustomQuery("SELECT id,consultancy_name FROM consultancies");
+                                 foreach($consultancy_list as $list){
+                                  ?>
+                                   <option value="<?=$list->id;?>"><?=$list->consultancy_name;?></option>
+                                  <?php
+                                 }
+                                  ?>
                             </select>
                         </div> 
                     </div>
@@ -101,7 +117,7 @@
                             <small class="ml-auto align-self-end">
                             </small>
                           </h4>
-                          <input type="file" name="adminimage" class="dropify"  required />
+                          <input type="file" name="adminimage" class="dropify"/>
                         </div>
                       </div>
                    

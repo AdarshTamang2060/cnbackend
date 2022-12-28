@@ -140,7 +140,7 @@ foreach($pagesdata as $pages):
                       
                     
                     
-                      <input class="btn btn-primary" type="submit" name="addmember" value="+Update banner">
+                      <input class="btn btn-primary" type="submit" name="addmember" value="+Update Pages">
                     </fieldset>
                   </form>
                 </div>

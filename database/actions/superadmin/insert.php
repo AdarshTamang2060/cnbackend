@@ -25,6 +25,8 @@
         $gender=$_POST["gender"];
         $usertype=$_POST["usertype"];
         $status=$_POST["status"];
+        $consultancy_id=$_POST["consulatncyid"];
+        
 
         //image information
         $raw_image=$_FILES["adminimage"];
@@ -90,7 +92,8 @@
 
 
              //password hassing 
-             $hash_password=md5($password);
+             $hash_password=password_hash($password, PASSWORD_BCRYPT);
+              
              
              
              $db->Insert("admins",["name"=>"$name","status"=>"$status","username"=>"$username", "email"=>"$email","password"=>"$hash_password","gender"=>"$gender","image"=>"$new_img_name","user_type"=>"$usertype"]);
@@ -100,13 +103,7 @@
              }
          } 
     }
-    else{
-            // $message="Image Can't Load";
-             $_SESSION["messages"]="Image Can't Load";
-            header("location:http://localhost/cnbackend/createadmin");
-
-
-    }
+   
     //image validation finished
    }
 }

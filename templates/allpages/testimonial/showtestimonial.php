@@ -58,7 +58,7 @@ $testi=$db->SelectAll("{$testimonial_table}");
                             <td><?=$data->title?></td>
                             <td><?=$data->status?></td>
                             <td><?=$data->message?></td>
-                            <td><?=$data->image?></td>
+                            <td> </td>
                             <td>
                               
                               <a href="<?=$base_url;?>templates/allpages/testimonial/edittestimonail.php?id=<?=$data->id;?>" class="link"><button class="btn btn-outline-primary"> <i class="fa-sharp fa-solid fa-pen-to-square"></i></button></a>

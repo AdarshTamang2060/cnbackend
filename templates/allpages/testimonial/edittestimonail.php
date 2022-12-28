@@ -42,7 +42,7 @@ foreach($testimonaildata as $data):
                   <h4 class="card-title">Add New consultacy</h4>  
                   <form class="cmxform" name="addmember" id="signupForm" method="post" action="<?=$base_url;?>database/actions/testimonial/edit.php" enctype="multipart/form-data" onsubmit="return validateForm()">
                     <fieldset>
-                        <input type="number" name="id" value="<?=$id?>">
+                        <input hidden type="number" name="id" value="<?=$id?>">
                         
                     <div class="row">
                     <div class="form-group col-6">
@@ -83,7 +83,7 @@ foreach($testimonaildata as $data):
                             <small class="ml-auto align-self-end">
                             </small>
                           </h4>
-                          <input type="text" name="img_url" value="<?=$data->image;?>"> 
+                          <input hidden type="text" name="img_url" value="<?=$data->image;?>"> 
                           <input type="file" name="img" class="dropify" Required />
                         </div>
                       </div>

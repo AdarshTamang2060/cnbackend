@@ -8,6 +8,9 @@
 <!--aside End-->
  
 <!-- main start-->
+<?php 
+$id=$_GET["id"];
+?>
  
 <div class="main-panel">
         <div class="content-wrapper">
@@ -27,9 +30,9 @@
               <div class="card">
                 <div class="card-body">
                   <h4 class="card-title">Edit Country</h4>  
-                  <form class="cmxform" name="addmember" id="signupForm" method="post" action="<?=$base_url;?>database/actions/country/edit.php" enctype="multipart/form-data">
+                  <form class="cmxform" name="addmember" id="signupForm" method="post" action="<?=$base_url;?>database/actions/country/country_content.php" enctype="multipart/form-data">
                     <fieldset>
-                        <input hidden type="number" name="country_id" >
+                        <input hidden type="number" value="<?=$id;?>" name="country_id" >
                     <div class="row">
                         <div class="form-group col-6">
                                 <label for="firstname">Title</label>
@@ -58,6 +61,21 @@
                         <label for="exampleSelectGender">Status</label>
                             <select class="form-control" name="status"   id="exampleSelectGender" Required>
 
+                            <?php if($data->status=="1"){
+                                ?>
+
+                                <option value="1" selected>Active</option>
+                                <option value="0">Inactive</option>
+
+                                <?php
+                              }
+                              else{?>
+                                <option value="0" selected>Inctive</option>
+                                <option value="1">Active</option>
+                              <?php
+                              }
+                              ?>
+
                             
                            
                             </select>
@@ -85,7 +103,7 @@
                             </small>
                           </h4>
                        
-                          <input type="file" name="countryimage"   class="dropify" />
+                          <input type="file" name="country-content-image"   class="dropify" />
                         </div>
                       </div>
                   </div>

@@ -74,7 +74,6 @@ $consultancy_data=$db->SelectAll("{$consultancy_table}");
                             <td><?=$data->consultancy_address;?></td>
                             <td><?=$data->status;?></td>
                             <td>
-                              <a href="" class="link"><button class="btn btn-outline-primary"><i class="fa-solid fa-eye"></i></button></a>
                               <a href="<?=$base_url;?>templates/allpages/consultancy/editconsultancy.php?id=<?=$data->id;?>" class="link"><button class="btn btn-outline-primary"> <i class="fa-sharp fa-solid fa-pen-to-square"></i></button></a>
                               <a href="#" class="link"><button class="btn btn-outline-primary"><i class="fa-solid fa-trash"></i></button></a>
                               <a href="#" class="link"><button class="btn btn-outline-primary">+country</button></a>

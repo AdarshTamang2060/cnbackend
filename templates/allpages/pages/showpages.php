@@ -60,7 +60,7 @@ $pages=$db->SelectAll("{$pages_table}");
                             <td><?php $name = $db->SelectByCriteria($page_type_table,'title','id',[$data->page_type_id]);
                             echo $name[0]->title;
                             ?></td>
-                            <td><?=$data->image?></td>
+                            <td> </td>
                              
                             <td>
                               <a href="<?=$base_url;?>templates/allpages/pages/editpage.php?id=<?=$data->id?>" class="link"><button class="btn btn-outline-primary"> <i class="fa-sharp fa-solid fa-pen-to-square"></i></button></a>

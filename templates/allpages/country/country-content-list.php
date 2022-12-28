@@ -10,8 +10,9 @@
 
 require_once "../../../database/database.php";
 require_once "../../../database/tables.php";
+$id=$_GET["id"];
 $db = Database::Instance();
-$countrycontent=$db->CustomQuery("SELECT * FROM country_contents");
+$countrycontent=$db->CustomQuery("SELECT * FROM country_contents WHERE country_id='$id'");
 
  ?>
 
@@ -59,7 +60,7 @@ $countrycontent=$db->CustomQuery("SELECT * FROM country_contents");
                             <td><?=$data->title;?></td>
                             <td><?=$data->date;?></td>
                             <td><?=$data->status;?></td>
-                            <td> <?=$data->image;?></td>
+                            <td> </td>
                              
                             <td>
                              

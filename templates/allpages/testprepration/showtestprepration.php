@@ -61,10 +61,10 @@ $test_data=$db->SelectAll("{$test_prep_table}");
                             <td><?=$data->title?></td>
                             <td><?=$data->date?></td>
                             <td><?=$data->status?></td>
-                            <td><?=$data->image?></td>
+                            <td> </td>
                              
                             <td>
-                              <a href="#" class="link"><button class="btn btn-outline-primary"><i class="fa-solid fa-eye"></i></button></a>
+                          
                               <a href="<?=$base_url;?>templates/allpages/testprepration/edittestprepration.php?id=<?=$data->id;?>" class="link"><button class="btn btn-outline-primary"> <i class="fa-sharp fa-solid fa-pen-to-square"></i></button></a>
                               <a href="#" data-did="<?=$data->id?>" class="link btn btn-outline-primary delete-test"><i class="fa-solid fa-trash"></i></a>
 
