@@ -388,6 +388,34 @@
       });
     }
   });
+  //Country Content delete 
+  $(document).on("click", ".delete-cc", function () {
+    console.log('hello');
+    if (confirm("Do you really want to delete this record?")) {
+      var did = $(this).data("did");
+      var elem = this;
+      // alert(did);
+      $.ajax({
+        url: "./database/actions/country/delete_cc.php",
+        type: "POST",
+        data: {
+          did: did,
+        },
+        success: function (data) {
+          var n = data.trim();
+          console.log(n
+          )
+          if (n==='1') {
+            // console.log(data)
+            $(elem).closest("tr").fadeOut();
+          } else {
+            $("#error-msg").html("cant delete records.").slideDown();
+            $("#success-msg").slideUp();
+          }
+        },
+      });
+    }
+  });
   //faq c delete 
   $(document).on("click", ".del-cfaq", function () {
     console.log('hello');

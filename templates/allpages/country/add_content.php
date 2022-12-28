@@ -30,13 +30,19 @@ $id=$_GET["id"];
               <div class="card">
                 <div class="card-body">
                   <h4 class="card-title">Edit Country</h4>  
+<<<<<<< HEAD
                   <form class="cmxform" name="addmember" id="signupForm" method="post" action="<?=$base_url;?>database/actions/country/country_content.php" enctype="multipart/form-data">
                     <fieldset>
                         <input hidden type="number" value="<?=$id;?>" name="country_id" >
+=======
+                  <form class="cmxform" name="addmember" id="signupForm" method="post" action="<?=$base_url;?>database/actions/country/content_insert.php" enctype="multipart/form-data">
+                    <fieldset>
+                        <input hidden  type="number" name="country_id" value="<?=$_GET['id']?>" >
+>>>>>>> f0a619c301206cfd447bdcf5aded88e9bcc5703c
                     <div class="row">
                         <div class="form-group col-6">
                                 <label for="firstname">Title</label>
-                                <input id="firstname" class="form-control" name="country_name" type="text" Required>
+                                <input id="firstname" class="form-control" name="title" type="text" Required>
                         </div>
                            <div class="form-group col-6 mt-3">
                                  
@@ -55,11 +61,12 @@ $id=$_GET["id"];
                       <div class="row">
                         <div class="form-group col-6">
                             <label for="firstname">Slug</label>
-                            <input id="firstname" class="form-control" name="country_slug" type="text"   Required>
+                            <input id="firstname" class="form-control" name="slug" type="text"   Required>
                         </div>
                         <div class="form-group col-6">
                         <label for="exampleSelectGender">Status</label>
                             <select class="form-control" name="status"   id="exampleSelectGender" Required>
+<<<<<<< HEAD
 
                             <?php if($data->status=="1"){
                                 ?>
@@ -76,6 +83,10 @@ $id=$_GET["id"];
                               }
                               ?>
 
+=======
+                              <option value="1">Public</option>
+                              <option value="0">Draft</option>
+>>>>>>> f0a619c301206cfd447bdcf5aded88e9bcc5703c
                             
                            
                             </select>
@@ -103,7 +114,11 @@ $id=$_GET["id"];
                             </small>
                           </h4>
                        
+<<<<<<< HEAD
                           <input type="file" name="country-content-image"   class="dropify" />
+=======
+                          <input type="file" name="ccimage"   class="dropify" />
+>>>>>>> f0a619c301206cfd447bdcf5aded88e9bcc5703c
                         </div>
                       </div>
                   </div>
