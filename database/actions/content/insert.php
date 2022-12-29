@@ -21,11 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         $message = "Size of the Image Should not be greater than 1 mb";
         $_SESSION["messages"] = $message;
-<<<<<<< HEAD
-        header("location:http://localhost/cnbackend/showcontent");
-=======
         header("location:http://localhost/cnbackend/addcontent");
->>>>>>> 813fd16e55f4e3beea5fddfb34ee9217e8f680d3
     } else {
         $img_ex = pathinfo($img_name, PATHINFO_EXTENSION);
         $img_ex_lc = strtolower($img_ex);

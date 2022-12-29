@@ -23,7 +23,10 @@ if (isset($_POST['did'])) {
         echo "1";
 
     }
+  }
+  ?>
+  
+  <script>
 
 
- 
-}
+  </script>
