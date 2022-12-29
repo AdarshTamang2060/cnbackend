@@ -14,7 +14,9 @@
 
 require_once "../../../database/database.php";
 $db = Database::Instance();
+$cid =$_GET['id'];
 $consultancy_list=$db->CustomQuery("SELECT * FROM consultancies");
+$selected=$db->CustomQuery("SELECT * FROM consultancy_pages where country_id={$cid}");
  ?>
 
  
@@ -44,19 +46,38 @@ $consultancy_list=$db->CustomQuery("SELECT * FROM consultancies");
                   <h4 class="card-title">Consultancy list</h4>
                   <form method="post" action="<?=$base_url;?>database/actions/country/addconsultancy.php" >
                   <div class="row d-flex flex-row-reverse">
-<div class="col-2">
-  <input class=" submitcheck btn btn-primary mt-5 sticky-top" type="submit" value="+add consultancy">   
+<div class="col-2 fixed-top"  style="    position: fixed;
+    top: 190px;
+    right: 0;
+    z-index: 1030;
+    left:inherit">
+  <input class=" submitcheck btn btn-primary mt-5 " type="submit" value="+add consultancy" >   
 
 </div>
 <div class="col-10">
-<?php
+<?php        
+if($selected==null){
+  $cons[]="";
+}else{
+
+  foreach($selected as $sel){
+    $cons[]=$sel->consultancy_id;
+  }
+}
+  // print_r($cons);
                   foreach($consultancy_list as $list){
-                    
-                    ?>
+       
+                
+              // print_r($cons)
+
+                      // print_r($sel)
+
+                      
+                      ?>
                   
-                    
+                  
                   <label class="container"><?=$list->consultancy_name;?>
-                  <input type="checkbox" name="consultancy_list[]" value="<?=$list->id?>">
+                  <input type="checkbox" <?=(in_array($list->id,$cons))?"checked":" " ?> name="consultancy_list[]" value="<?=$list->id?>">
                   <span class="checkmark"></span>
                 </label>
                 <?php 
@@ -64,6 +85,7 @@ $consultancy_list=$db->CustomQuery("SELECT * FROM consultancies");
                   ?>
                   </div>
                   </div>
+                  <input hidden name="country"  type="number" value="<?=$cid?>">
 
                    
                 </form>

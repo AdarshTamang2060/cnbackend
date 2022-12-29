@@ -12,11 +12,7 @@ require_once "../../../database/database.php";
 require_once "../../../database/tables.php";
 $id=$_GET["id"];
 $db = Database::Instance();
-<<<<<<< HEAD
-$countrycontent=$db->CustomQuery("SELECT * FROM country_contents WHERE country_id='$id'");
-=======
 $countrycontent=$db->CustomQuery("SELECT * FROM country_contents where country_id={$_GET['id']}");
->>>>>>> f0a619c301206cfd447bdcf5aded88e9bcc5703c
 
  ?>
 
