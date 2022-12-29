@@ -1,5 +1,5 @@
 <!--header start-->
-<?php  session_start();
+<?php   
 include "templates/layout/header.php";?>
 <!--header close-->
 

@@ -1,6 +1,6 @@
 <!--header start-->
 <?php 
-session_start();
+ 
 include "templates/layout/header.php";?>
 <!--header close-->
 
@@ -60,17 +60,13 @@ $country_data=$db->SelectAll("{$country_table}");
                             <td><?=$data->id;?></td>
                             <td><?=$data->country_name;?>
                           <hr>
-<<<<<<< HEAD
-                          <?php 
-                        $count=$db->CustomQuery("SELECT COUNT(*) as counts FROM country_contents WHERE country_id='$data->id'");
-                        // print_r($count);
-                         
-                          ?>
-                      
-                         <a href="<?=$base_url;?>templates/allpages/country/country-content-list.php?id=<?=$data->id?>" class="link"> showcontent &nbsp;<?= $count[0]->counts?></a>
-=======
-                         <a href="<?=$base_url;?>templates/allpages/country/country-content-list.php?id=<?=$data->id?>" class="link"> showcontent</a>
->>>>>>> f0a619c301206cfd447bdcf5aded88e9bcc5703c
+                         <a href="<?=$base_url;?>templates/allpages/country/country-content-list.php?id=<?=$data->id?>" class="link">
+                         <?php
+                       
+                         $counts=$db->CustomQuery("SELECT COUNT(*) as count FROM country_contents WHERE country_id={$data->id}");
+                              
+                         ?>
+                         showcontent &nbsp;<?=$counts[0]->count;?></a>
                           </td>
                             <td><?=$data->order_number;?></td>
                             <td><?=$data->featured;?></td>
@@ -81,11 +77,7 @@ $country_data=$db->SelectAll("{$country_table}");
                               <a href="<?=$base_url;?>templates/allpages/country/editcountry.php?id=<?=$data->id?>"  class="link"><button class="btn btn-outline-primary"> <i class="fa-sharp fa-solid fa-pen-to-square"></i></button></a>
                               <a href="#" data-did="<?=$data->id?>" class="link btn btn-outline-primary delete-country"><i class="fa-solid fa-trash"></i></a>
                               <a href="<?=$base_url;?>templates/allpages/country/consultancylist.php" class="link"><button class="btn btn-outline-primary">+add consultancy</button></a>
-<<<<<<< HEAD
-                              <a href="<?=$base_url;?>templates/allpages/country/add_content.php?id=<?=$data->id;?>" class="link"><button class="btn btn-outline-primary">+add contents</button></a>
-=======
                               <a href="<?=$base_url;?>templates/allpages/country/add_content.php?id=<?=$data->id?>" class="link"><button class="btn btn-outline-primary">+add contents</button></a>
->>>>>>> f0a619c301206cfd447bdcf5aded88e9bcc5703c
                             </td>
                         </tr>
                         <?php }?>

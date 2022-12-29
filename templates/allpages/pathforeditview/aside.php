@@ -6,7 +6,7 @@
         <ul class="nav">
            
           <li class="nav-item">
-            <a class="nav-link" href="<?=$base_url;?>">
+            <a class="nav-link" href="<?=$base_url;?>dashboard">
               <i class="fa fa-home menu-icon"></i>
               <span class="menu-title">Dashboard</span>
             </a>
@@ -38,7 +38,7 @@
             </a>
             <div class="collapse" id="ui-basic">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="<?=$base_url;?>Addcountry">Add country</a></li>
+                <li class="nav-item"> <a class="nav-link" href="<?=$base_url;?>addcountry">Add country</a></li>
                 <li class="nav-item"> <a class="nav-link" href="<?=$base_url;?>showcountry">Show country</a></li>
                  </ul>
               </div>

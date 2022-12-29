@@ -1,6 +1,6 @@
 <!--header start-->
 <?php 
-session_start();
+ 
 include "templates/layout/header.php"; ?>
 <!--header close-->
 

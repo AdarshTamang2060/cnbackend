@@ -21,6 +21,11 @@ $url = explode('/', $_SERVER['REQUEST_URI']);
         include('templates/allpages/dashboard/dashboard.php');
         
     }
+    elseif($url[2]== 'consultancydashboard'){
+        $title="consultancydashboard";
+        include('templates/consultancydashboard/dashboard.php');
+        
+    }
     elseif($url[2]== 'createadmin'){
         $title="Create Admin";
         include('templates/allpages/superadmin/createadmin.php');
@@ -29,7 +34,7 @@ $url = explode('/', $_SERVER['REQUEST_URI']);
         $title="Show Admin";
         include('templates/allpages/superadmin/showadmin.php');
     }
-    elseif($url[2]== 'Addcountry'){
+    elseif($url[2]== 'addcountry'){
         $title="Add Country";
         include('templates/allpages/country/addcountry.php');
     }

@@ -93,10 +93,10 @@
 
              //password hassing 
              $hash_password=password_hash($password, PASSWORD_BCRYPT);
-              
-             
-             
-             $db->Insert("admins",["name"=>"$name","status"=>"$status","username"=>"$username", "email"=>"$email","password"=>"$hash_password","gender"=>"$gender","image"=>"$new_img_name","user_type"=>"$usertype"]);
+           
+            
+            
+             $db->Insert("admins",["consultancy_id"=>"$consultancy_id","name"=>"$name","status"=>"$status","username"=>"$username", "email"=>"$email","password"=>"$hash_password","gender"=>"$gender","image"=>"$new_img_name","user_type"=>"$usertype"]);
              $_SESSION["message"]="New Record Added..";
              header("location:http://localhost/cnbackend/createadmin");
  

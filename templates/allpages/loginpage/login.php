@@ -1,3 +1,13 @@
+<?php session_start();
+
+if(isset($_SESSION["username"])){
+ 
+ header("location:http://localhost/cnbackend/dashboard");
+
+}
+
+ 
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -22,12 +32,31 @@
 </head>
 
 <body>
+
+
+ 
+
   <div class="container-scroller">
     <div class="container-fluid page-body-wrapper full-page-wrapper">
       <div class="content-wrapper d-flex align-items-center auth">
         <div class="row w-100">
           <div class="col-lg-4 mx-auto">
             <div class="auth-form-light text-left p-5">
+                              <?php 
+
+                  if(isset($_SESSION["message"])){
+
+                    
+                    echo  "<div class='alert alert-danger alert-dismissible fade show' role='alert'>
+                    <strong>🥴Error🥴</strong> {$_SESSION['message']}.
+                    <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+                    <span aria-hidden='true'>&times;</span>
+                  </button>
+                    </div>";
+                  }
+                  session_unset();
+
+                  ?>
               <div class="brand-logo">
                 <img src="images/logo/logo.png" alt="logo"   >
               </div>

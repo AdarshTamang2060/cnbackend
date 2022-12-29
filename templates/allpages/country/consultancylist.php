@@ -1,5 +1,5 @@
  <!--header start-->
- <?php   session_start(); 
+ <?php   
  include "../pathforeditview/header.php";?>
 <!--header close-->
 

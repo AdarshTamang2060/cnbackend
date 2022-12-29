@@ -1,20 +1,7 @@
-<?php session_start();
-
-if(!isset($_SESSION["username"])){
-
-  header("location:{$base_url}");
-
-}
-else{
-  if($_SESSION["usertype"]!="admin"){
-    header("location:database\actions\login\logout.php");
-  }
-}
-
  
  
  
-?>
+ 
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -47,9 +34,6 @@ else{
     color:pink;
     text-decoration:none;
 }
-
-
- 
     </style>
 </head>
 <body>
