@@ -41,7 +41,7 @@
                   }
                   elseif($usertype=="user"){
                     session_start();
-                    $_SESSION["username"]=$username;
+                    $_SESSION["loginusername"]=$username;
                     $_SESSION["usertype"]=$usertype;
                     $_SESSION["consultancy_id"]=$consultancy_id;
 
@@ -52,7 +52,8 @@
                   else{
                     session_start();
                     $_SESSION["message"]="login fail";
-                    header("location:http://localhost/cnbackend/consultancydashboard");
+                    header("location:http://localhost/cnbackend/");
+                   
                     
                   }
 

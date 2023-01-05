@@ -17,7 +17,7 @@
             </a>
             <div class="collapse" id="consultancy">
               <ul class="nav flex-column sub-menu">
-              <li class="nav-item"> <a class="nav-link" href="<?=$base_url;?>addconsultancy">Add consultancy</a></li>
+              <li class="nav-item"> <a class="nav-link" href="<?=$base_url_user;?>add_consultancy_user">Add consultancy</a></li>
                 <li class="nav-item"> <a class="nav-link" href="<?=$base_url;?>showconsultancy">Show consultancy</a></li>
  
                 
@@ -27,7 +27,7 @@
           <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#ui-advanced" aria-expanded="false" aria-controls="ui-advanced">
             <i class="fa-solid fa-folder"></i>&nbsp;&nbsp;&nbsp;
-              <span class="menu-title"> dsfs</span>
+              <span class="menu-title">Sucess Gallery</span>
               <i class="menu-arrow"></i>
             </a>
             <div class="collapse" id="ui-advanced">

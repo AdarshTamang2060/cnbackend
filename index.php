@@ -1,6 +1,7 @@
 <?php
  
 $base_url="http://localhost/cnbackend/";
+$base_url_user="http://localhost/cnbackend/consultancydashboard/";
 
 $url = explode('/', $_SERVER['REQUEST_URI']);
 // print_r($url);
@@ -12,7 +13,7 @@ $url = explode('/', $_SERVER['REQUEST_URI']);
  
     
     if ($url[2] == '') {
-        $title="Dashboard";
+        $title="Login Page";
         include('templates/allpages/loginpage/login.php');
         
     }  
@@ -24,6 +25,11 @@ $url = explode('/', $_SERVER['REQUEST_URI']);
     elseif($url[2]== 'consultancydashboard'){
         $title="consultancydashboard";
         include('templates/consultancydashboard/dashboard.php');
+        if($url[3]== 'add_consultancy_user'){
+            $title="Add Consultancy";
+            include('templates/consultancydashboard/add_consultancy_user.php');
+
+        }
         
     }
     elseif($url[2]== 'createadmin'){

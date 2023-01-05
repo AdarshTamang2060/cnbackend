@@ -38,10 +38,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $db->Insert($slugs_table,$params);
         move_uploaded_file($tmp_name, $img_upload_path);
         $_SESSION['message']='Country Added Successfully';
-        header("location:http://localhost/cnbackend/Addcountry");
+        header("location:http://localhost/cnbackend/addcountry");
 
     }else{
         $_SESSION['messages']='Country Addition failed';
-        header("location:http://localhost/cnbackend/Addcountry");
+        header("location:http://localhost/cnbackend/addcountry");
     }
 }

@@ -1,4 +1,33 @@
+ <?php
+
+session_start();
+
+if(!isset($_SESSION["loginusername"])){
+
+  header("location:{$base_url}");
+
+}
+else{
+  if($_SESSION["usertype"]!="user"){
+    header("location:database\actions\login\logout.php");
+  }
+}
+
  
+
+ 
+ 
+ echo $_SESSION["loginusername"];
+ echo $_SESSION["usertype"];
+ echo $_SESSION["consultancy_id"];
+ $id=$_SESSION["consultancy_id"];
+ 
+require_once "database/database.php";
+$db = Database::Instance();
+$consultancy=$db->CustomQuery("SELECT * FROM consultancies where id='$id'");
+
+ 
+?>
  
  
  
